@@ -56,7 +56,7 @@
         <button class="dropdown-button">API Development</button>
         <ul class="dropdown-list">
             <li class="dropdown-item" data-key="backend-architecture">Backend architecture</li>
-            <li class="dropdown-item" data-key="api-development">API Development</li>
+            <li class="dropdown-item" data-key="api-development">Backend development</li>
             <li class="dropdown-item" data-key="infrastructure">Infrastructure</li>
             <li class="dropdown-item" data-key="devops">DevOps</li>
             <li class="dropdown-item" data-key="blockchain">Blockchain</li>
@@ -151,6 +151,17 @@
             <p>Integrating security practices into the development pipeline ensures that security is
                 seamlessly built into the software from the very beginning, rather than being an
                 afterthought.
+            </p>
+        </div>
+
+        <div class="card" data-key="blockchain" style="display: none;">
+            <h3>Solana</h3>
+            <p>
+                Designing and building trading software using the high-performance Solana
+                blockchain,
+                ensuring fast and efficient transactions.
+                Integrations of leading DEXs, enabling efficient token swaps with real-time market
+                tracking.
             </p>
         </div>
     </div>
@@ -325,89 +336,108 @@
 
     </div>
     <div class="service-description" data-key="infrastructure" style="display: none;">
-        <section id="aws-infrastructure">
-            <h3>Advanced AWS Infrastructure Setup</h3>
-            <p>Empower your business with custom AWS infrastructure solutions designed for <strong>scalability,
-                security, and cost-efficiency</strong>. Our expert team builds cloud environments
-                that not only meet your current needs but also adapt as your business grows. By
-                adhering to AWS best practices, we ensure <strong>seamless performance, robust
-                    security, and full compliance</strong> with the latest industry standards. Let
-                us manage the technical complexities, allowing you to stay focused on innovation and
-                business growth.</p>
+        <h3>Advanced AWS Infrastructure Setup</h3>
+        <p>Empower your business with custom AWS infrastructure solutions designed for <strong>scalability,
+            security, and cost-efficiency</strong>. Our expert team builds cloud environments
+            that not only meet your current needs but also adapt as your business grows. By
+            adhering to AWS best practices, we ensure <strong>seamless performance, robust
+                security, and full compliance</strong> with the latest industry standards. Let
+            us manage the technical complexities, allowing you to stay focused on innovation and
+            business growth.</p>
 
-            <h3>Microservice Architecture</h3>
-            <p>Boost the scalability and reliability of your applications by adopting a <strong>microservice
-                architecture</strong>. We implement microservices with a message broker, allowing
-                each service to operate independently. This ensures that your application scales
-                effortlessly as your business grows while maintaining superior performance and
-                uptime.</p>
-            <p>With a microservice architecture, you gain:</p>
-            <ul>
-                <li><strong>Improved scalability:</strong> Scale individual services without
-                    impacting the entire system.
-                </li>
-                <li><strong>Increased reliability:</strong> Isolate failures so they don't affect
-                    other parts of the application.
-                </li>
-                <li><strong>Flexibility in development:</strong> Microservices enable continuous
-                    deployment and allow for independent upgrades of each service.
-                </li>
-                <li><strong>Ease of integration:</strong> Use different technologies or languages
-                    for each microservice, tailored to its specific function.
-                </li>
-            </ul>
+        <h3>Microservice Architecture</h3>
+        <p>Boost the scalability and reliability of your applications by adopting a <strong>microservice
+            architecture</strong>. We implement microservices with a message broker, allowing
+            each service to operate independently. This ensures that your application scales
+            effortlessly as your business grows while maintaining superior performance and
+            uptime.</p>
+        <p>With a microservice architecture, you gain:</p>
+        <ul>
+            <li><strong>Improved scalability:</strong> Scale individual services without
+                impacting the entire system.
+            </li>
+            <li><strong>Increased reliability:</strong> Isolate failures so they don't affect
+                other parts of the application.
+            </li>
+            <li><strong>Flexibility in development:</strong> Microservices enable continuous
+                deployment and allow for independent upgrades of each service.
+            </li>
+            <li><strong>Ease of integration:</strong> Use different technologies or languages
+                for each microservice, tailored to its specific function.
+            </li>
+        </ul>
 
-            <h3>Serverless Architecture</h3>
-            <p>Take advantage of the future of cloud computing with <strong>serverless
-                architecture</strong>. We implement serverless solutions across any cloud provider,
-                enabling your application to <strong>automatically scale</strong> without the need
-                for server management. Enjoy significant cost savings and a streamlined operational
-                workflow, paying only for the compute power you use.</p>
-            <p>Our serverless architecture solutions offer:</p>
-            <ul>
-                <li><strong>Automatic scaling:</strong> Scale your applications based on demand
-                    without manual intervention.
-                </li>
-                <li><strong>Cost efficiency:</strong> Pay only for the resources your applications
-                    consume, reducing unnecessary costs.
-                </li>
-                <li><strong>Faster time-to-market:</strong> Focus on writing code, while we handle
-                    the infrastructure, speeding up development cycles.
-                </li>
-                <li><strong>Simplified management:</strong> No servers to maintain, patch, or
-                    update—allowing you to focus on business priorities.
-                </li>
-            </ul>
+        <h3>Serverless Architecture</h3>
+        <p>Take advantage of the future of cloud computing with <strong>serverless
+            architecture</strong>. We implement serverless solutions across any cloud provider,
+            enabling your application to <strong>automatically scale</strong> without the need
+            for server management. Enjoy significant cost savings and a streamlined operational
+            workflow, paying only for the compute power you use.</p>
+        <p>Our serverless architecture solutions offer:</p>
+        <ul>
+            <li><strong>Automatic scaling:</strong> Scale your applications based on demand
+                without manual intervention.
+            </li>
+            <li><strong>Cost efficiency:</strong> Pay only for the resources your applications
+                consume, reducing unnecessary costs.
+            </li>
+            <li><strong>Faster time-to-market:</strong> Focus on writing code, while we handle
+                the infrastructure, speeding up development cycles.
+            </li>
+            <li><strong>Simplified management:</strong> No servers to maintain, patch, or
+                update—allowing you to focus on business priorities.
+            </li>
+        </ul>
 
-            <h3>Monolithic Architecture</h3>
-            <p>For simpler application needs, we offer robust <strong>monolithic
-                architecture</strong> solutions. By consolidating all components into a single
-                codebase, this approach simplifies development, deployment, and management. If
-                you’re looking for a unified and tightly integrated solution, our monolithic
-                architecture will provide exactly that, delivering efficiency and ease of use.</p>
-            <p>Our monolithic architecture solution is ideal for:</p>
-            <ul>
-                <li><strong>Unified structure:</strong> All components are developed and deployed as
-                    one cohesive unit, simplifying your development process.
-                </li>
-                <li><strong>Reduced complexity:</strong> A single codebase makes it easier to
-                    understand, debug, and manage the application.
-                </li>
-                <li><strong>Faster development:</strong> With fewer moving parts, development is
-                    straightforward and more predictable for smaller applications.
-                </li>
-                <li><strong>Simplified deployment:</strong> Easily roll out new versions or updates
-                    without managing multiple, independent services.
-                </li>
-            </ul>
+        <h3>Monolithic Architecture</h3>
+        <p>For simpler application needs, we offer robust <strong>monolithic
+            architecture</strong> solutions. By consolidating all components into a single
+            codebase, this approach simplifies development, deployment, and management. If
+            you’re looking for a unified and tightly integrated solution, our monolithic
+            architecture will provide exactly that, delivering efficiency and ease of use.</p>
+        <p>Our monolithic architecture solution is ideal for:</p>
+        <ul>
+            <li><strong>Unified structure:</strong> All components are developed and deployed as
+                one cohesive unit, simplifying your development process.
+            </li>
+            <li><strong>Reduced complexity:</strong> A single codebase makes it easier to
+                understand, debug, and manage the application.
+            </li>
+            <li><strong>Faster development:</strong> With fewer moving parts, development is
+                straightforward and more predictable for smaller applications.
+            </li>
+            <li><strong>Simplified deployment:</strong> Easily roll out new versions or updates
+                without managing multiple, independent services.
+            </li>
+        </ul>
 
-            <p>We tailor each solution to meet your business’s specific needs, whether you're
-                looking for the flexibility of microservices, the scalability of serverless, or the
-                simplicity of monolithic architecture. Our team will ensure your system is optimized
-                for performance, security, and cost-effectiveness. <strong>Contact us today</strong>
-                to get started with the perfect infrastructure setup for your business.</p>
-        </section>
+        <p>We tailor each solution to meet your business’s specific needs, whether you're
+            looking for the flexibility of microservices, the scalability of serverless, or the
+            simplicity of monolithic architecture. Our team will ensure your system is optimized
+            for performance, security, and cost-effectiveness. <strong>Contact us today</strong>
+            to get started with the perfect infrastructure setup for your business.</p>
+    </div>
 
+    <div class="service-description" data-key="devops" style="display: none;">
+        <h3>What is DevOps?</h3>
+        <p>
+            DevOps is a set of practices and tools that integrate software development (Dev) and IT
+            operations (Ops) to streamline the development lifecycle. It focuses on automation,
+            continuous integration and delivery (CI/CD), collaboration between teams, and real-time
+            monitoring. DevOps enhances efficiency, reduces errors, and enables faster, more
+            reliable software releases.
+        </p>
+    </div>
+
+    <div class="service-description" data-key="blockchain" style="display: none;">
+        <h3>What is Solana?</h3>
+        <p>
+            Solana is a high-performance blockchain designed for decentralized applications (dApps)
+            with fast transaction speeds and low fees. It uses a unique Proof of History (PoH)
+            consensus mechanism, allowing it to process up to 65,000 transactions per second.
+            Solana’s architecture is highly scalable and does not require layer-2 solutions, making
+            it ideal for applications like DeFi, gaming, and NFTs.
+        </p>
     </div>
 </section>
 
