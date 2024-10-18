@@ -6,8 +6,8 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 module.exports = {
   mode: 'production', // Minifies output by default in production mode
   entry: {
-    main: './src/main.js', // Your JavaScript entry point
-    styles: './src/styles.css' // Your CSS entry point
+    main: './src/main.raw.js', // Your JavaScript entry point
+    // styles: './src/styles.raw.css' // Your CSS entry point
   },
   output: {
     filename: '[name].min.js', // Output file for minified JS

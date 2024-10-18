@@ -1,3 +1,5 @@
+import './styles.raw.css';
+
 (function () {
   'use strict';
 
