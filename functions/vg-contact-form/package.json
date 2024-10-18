@@ -1,12 +1,5 @@
 {
-  "name": "vg-contact-form",
-  "version": "0.0.0",
-  "devDependencies": {
-    "wrangler": "3.80.4"
-  },
-  "private": true,
   "dependencies": {
-    "@types/node": "^22.7.5",
-    "googleapis": "^144.0.0"
+    "@aws-sdk/client-ses": "^3.670.0"
   }
 }

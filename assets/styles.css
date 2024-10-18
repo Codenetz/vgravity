@@ -672,6 +672,11 @@ textarea::placeholder {
     background-color: #4d2a85;
 }
 
+.submit-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.3;
+}
+
 .error-message {
     color: red;
     font-size: 14px;
