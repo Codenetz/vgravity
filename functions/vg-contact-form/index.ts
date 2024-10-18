@@ -7,6 +7,8 @@ const {
     CF_CAPTCHA_SECRET,
 } = process.env;
 
+// @TODO Test sleep(5/6/7/8/9/10/11/12 seconds)
+
 const sesClient = new SESClient({region: AWS_REGION});
 export const handler = async (event) => {
     try {
@@ -17,9 +19,6 @@ export const handler = async (event) => {
                 body: JSON.stringify({message: "name, email, content and captchaToken are required"}),
             };
         }
-
-        console.log('captchaToken: ', captchaToken);
-
 
         const cfResponse = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
             method: 'POST',
@@ -33,8 +32,6 @@ export const handler = async (event) => {
         });
 
         const cfResponseData = await cfResponse.json();
-
-        console.log('cfResponseData: ', cfResponseData);
 
         if (!cfResponseData.success) {
             return {

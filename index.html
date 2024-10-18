@@ -516,18 +516,21 @@
             </div>
 
             <div class="form-group">
-            <input type="hidden" id="captchaToken" name="captchaToken" value="">
-            <div
-                    class="cf-turnstile"
-                    data-sitekey="0x4AAAAAAAxmR6OXxKHMuPjw"
-                    data-callback="CFTurnstilCallback"
-                    data-theme="light"
-            ></div>
+                <input type="hidden" id="captchaToken" name="captchaToken" value="">
+                <div
+                        class="cf-turnstile"
+                        data-sitekey="0x4AAAAAAAxmR6OXxKHMuPjw"
+                        data-callback="CFTurnstilCallback"
+                        data-expired-callback="CFTurnstilExpired"
+                        data-theme="light"
+                ></div>
                 <span class="error-message" id="captcha-error"></span>
             </div>
 
             <div class="form-group">
-                <button type="submit" class="submit-button" id="contact-form-submit" disabled>SUBMIT</button>
+                <button type="submit" class="submit-button" id="contact-form-submit" disabled>
+                    SUBMIT
+                </button>
             </div>
         </form>
     </div>
@@ -622,11 +625,17 @@
     });
   });
 
-    function CFTurnstilCallback(token) {
-      console.log('Captcha token received:', token);
-      document.getElementById('contact-form-submit').disabled = false;
-      document.getElementById('captchaToken').value = token;
-    }
+  function CFTurnstilCallback(token) {
+    console.log('Captcha token received:', token);
+    document.getElementById('contact-form-submit').disabled = false;
+    document.getElementById('captchaToken').value = token;
+  }
+
+  function CFTurnstilExpired() {
+    console.log('Captcha token expired');
+    document.getElementById('contact-form-submit').disabled = true;
+    document.getElementById('captchaToken').value = '';
+  }
 
   // Contact Form Submission
   document.querySelector('.contact-form').addEventListener('submit', async function (event) {
