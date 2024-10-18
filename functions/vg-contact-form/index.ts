@@ -7,8 +7,6 @@ const {
     CF_CAPTCHA_SECRET,
 } = process.env;
 
-// @TODO Test sleep(5/6/7/8/9/10/11/12 seconds)
-
 const sesClient = new SESClient({region: AWS_REGION});
 export const handler = async (event) => {
     try {
@@ -16,7 +14,11 @@ export const handler = async (event) => {
         if (!name || !email || !content || !captchaToken) {
             return {
                 statusCode: 400,
-                body: JSON.stringify({message: "name, email, content and captchaToken are required"}),
+                body: JSON.stringify({
+                    error: 'Bad Request',
+                    message: 'Please provide all required fields',
+                    date: new Date().toISOString(),
+                }),
             };
         }
 
@@ -36,7 +38,11 @@ export const handler = async (event) => {
         if (!cfResponseData.success) {
             return {
                 statusCode: 400,
-                body: JSON.stringify({message: "Captcha verification failed"}),
+                body: JSON.stringify({
+                    error: 'Bad Request',
+                    message: 'Captcha verification failed',
+                    date: new Date().toISOString(),
+                }),
             };
         }
 
@@ -51,7 +57,9 @@ export const handler = async (event) => {
                 },
                 Body: {
                     Text: {
-                        Data: `New message from ${name} (${email}):\n\n${content}`,
+                        Data: `From: ${name} \n
+                        Email ${email}:\n\n
+                        ${content}`,
                     },
                 },
             },
@@ -59,16 +67,24 @@ export const handler = async (event) => {
 
         const command = new SendEmailCommand(emailParams);
         await sesClient.send(command);
+
         return {
             statusCode: 200,
-            body: JSON.stringify({message: "Email sent successfully!"}),
+            body: JSON.stringify({
+                error: null,
+                message: 'Success',
+                date: new Date().toISOString(),
+            }),
         };
     } catch (error) {
         console.error("Error sending email: ", error);
-
         return {
             statusCode: 500,
-            body: JSON.stringify({message: "Failed to send email", error: error.message}),
+            body: JSON.stringify({
+                error: 'Internal Server Error',
+                message: 'Failed to send email',
+                date: new Date().toISOString(),
+            }),
         };
     }
 };
