@@ -1,0 +1,2 @@
+# Redirect all requests to 404 page if not found
+/* /404.html 404
