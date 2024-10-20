@@ -24,7 +24,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: '[name].min.css', // Output file for minified CSS
+      filename: '[name]_v10.min.css', // Output file for minified CSS
     }),
   ],
   optimization: {
