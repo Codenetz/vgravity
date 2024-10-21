@@ -4,39 +4,38 @@ const TerserPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = {
-  mode: 'production', // Minifies output by default in production mode
+  mode: 'production',
   entry: {
-    main: './src/main.raw.js', // Your JavaScript entry point
-    // styles: './src/styles.raw.css' // Your CSS entry point
+    main: './src/main.raw.js'
   },
   output: {
-    filename: '[name].min.js', // Output file for minified JS
-    path: path.resolve(__dirname, 'public/dist'), // Output directory
-    clean: true, // Clean the dist folder before each build
+    filename: '[name].min.js',
+    path: path.resolve(__dirname, 'public/dist'),
+    clean: true
   },
   module: {
     rules: [
       {
-        test: /\.css$/i, // Target .css files
-        use: [MiniCssExtractPlugin.loader, 'css-loader'], // Use MiniCssExtractPlugin to extract CSS
+        test: /\.css$/i,
+        use: [MiniCssExtractPlugin.loader, 'css-loader']
       },
     ],
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: '[name]_v10.min.css', // Output file for minified CSS
+      filename: '[name].min.css'
     }),
   ],
   optimization: {
-    minimize: true, // Enable minification
+    minimize: true,
     minimizer: [
-      new TerserPlugin(), // Minify JavaScript
-      new CssMinimizerPlugin(), // Minify CSS
+      new TerserPlugin(),
+      new CssMinimizerPlugin()
     ],
   },
   watchOptions: {
-    ignored: /node_modules/, // Ignore changes in node_modules directory
-    aggregateTimeout: 300,   // Delay the rebuild after the first change (in ms)
-    poll: 1000,              // Check for changes every second (useful for networked file systems)
+    ignored: /node_modules/,
+    aggregateTimeout: 300,
+    poll: 1000
   },
 };

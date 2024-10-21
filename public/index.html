@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VGravity backend development</title>
-    <link rel="stylesheet" href="dist/main_v10.min.css">
+    <link rel="stylesheet" href="dist/main.min.css">
     <script src="dist/main.min.js" async></script>
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
@@ -24,8 +24,8 @@
             </ul>
         </nav>
     </header>
-    <video autoplay muted loop playsinline class="background-video">
-        <source src="assets/images/header.mov" type="video/mp4">
+    <video autoplay muted loop playsinline class="background-video" poster="assets/header_video/video_frame.jpg">
+        <source src="assets/header_video/header_video_loop_30fr_crf_28.webm" type="video/webm">
         Your browser does not support the video tag.
     </video>
     <div class="hero-content">
@@ -69,20 +69,31 @@
     </div>
 
     <div class="service-cards">
-        <div class="card" data-key="backend-architecture">
-            <h3>Software blueprint</h3>
-            <p>We create a blueprint for your application's backend architecture, defining component
-                structure, interactions, and data flow. We assess requirements, select technologies,
-                and ensure seamless integration between modules.
-            </p>
-        </div>
-
-        <div class="card" data-key="backend-architecture">
-            <h3>Design database schema</h3>
-            <p>We provide a structured approach to selecting the right database system (SQL, NoSQL),
-                designing schemas, defining tables and relationships, and setting up the database
-                with initial data for testing and development.
-            </p>
+        <div class="inner-page-content row_2" data-key="backend-architecture">
+            <div class="inner-page-card">
+                <div class="icon">
+                    <img src="assets/images/icon_cog.png" alt="Gear Icon">
+                </div>
+                <h3>Software Blueprint</h3>
+                <p>We create a blueprint for your application's backend architecture, defining
+                    component
+                    structure, interactions, and data flow. We assess requirements, select
+                    technologies,
+                    and ensure seamless integration between modules.
+                </p>
+            </div>
+            <div class="inner-page-card">
+                <div class="icon">
+                    <img src="assets/images/icon_cog.png" alt="Gear Icon">
+                </div>
+                <h3>Design database schema</h3>
+                <p>We provide a structured approach to selecting the right database system (SQL,
+                    NoSQL),
+                    designing schemas, defining tables and relationships, and setting up the
+                    database
+                    with initial data for testing and development.
+                </p>
+            </div>
         </div>
 
         <div class="card" data-key="api-development" style="display: none;">
