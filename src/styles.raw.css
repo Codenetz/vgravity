@@ -172,7 +172,7 @@ nav ul li a {
     color: #000;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
     header {
         padding: 30px 20px;
     }
@@ -254,8 +254,8 @@ nav ul li a {
 .section h4 {
     font-size: 20px;
     color: #8377D1;
-    padding-bottom: 35px;
-    font-weight: bold;
+    padding-bottom: 15px;
+    font-weight: 700;
 }
 
 .section h2 {
@@ -265,25 +265,19 @@ nav ul li a {
     padding-bottom: 35px;
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1600px) {
     .section {
-        padding: 50px 220px; /* Reduce padding for smaller screens */
+        padding: 50px 180px; /* Reduce padding for smaller screens */
     }
 }
 
 @media (max-width: 1200px) {
     .section {
-        padding: 50px 120px; /* Reduce padding for smaller screens */
-    }
-}
-
-@media (max-width: 900px) {
-    .section {
         padding: 50px 80px; /* Reduce padding for smaller screens */
     }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
     .section {
         padding: 50px 20px; /* Reduce padding for smaller screens */
     }
@@ -291,7 +285,7 @@ nav ul li a {
 
 @media (max-width: 768px) {
     .section {
-        padding: 50px 20px; /* Reduce padding for smaller screens */
+        padding: 50px 15px; /* Reduce padding for smaller screens */
     }
 
     .section h4 {
@@ -312,6 +306,7 @@ nav ul li a {
 }
 
 /* Services Section */
+
 .tabs {
     display: flex;
     justify-content: flex-start;
@@ -320,10 +315,11 @@ nav ul li a {
     border-radius: 50px;
     overflow: hidden;
     margin-bottom: 35px;
+    max-height: 70px;
 }
 
 .tab {
-    padding: 25px 10px;
+    padding: 25px 7px;
     font-size: 18px;
     cursor: pointer;
     display: flex;
@@ -338,20 +334,48 @@ nav ul li a {
     text-align: center;
 }
 
+.tab span.break-words {
+    width: 50%;
+    word-break: break-word;
+    white-space: normal;
+}
+
 .tab.active {
     color: #fff;
     background: #3A1660;
-    font-weight: bold;
-    text-decoration: none !important;
+    font-weight: 600;
+    opacity: 1 !important;
 }
 
 .tab:hover {
-    text-decoration: underline;
+    opacity: 0.5;
 }
 
 /* Service Cards */
 .service-cards {
     justify-content: left;
+}
+
+.service-redirect-button {
+    padding: 10px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    color: #3A1660;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+    border: 1px solid rgba(58, 22, 96, 0.2);
+    background: rgba(58, 22, 96, 0.05);
+    height: 44px;
+    font-weight: 600;
+}
+
+.service-redirect-button img {
+    width: 11px;
+}
+
+.service-redirect-button:hover {
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 .card {
@@ -383,29 +407,6 @@ nav ul li a {
     color: #666;
     line-height: 1.5;
     font-weight: 500;
-}
-
-.service-description {
-    padding: 20px;
-    position: relative;
-}
-
-.service-description p {
-    color: #1B1523;
-    font-size: 16px;
-    font-weight: 300;
-    margin-bottom: 15px;
-}
-
-.service-description h3 {
-    color: #3A1660;
-    font-size: 20px;
-    font-weight: 800;
-    margin-bottom: 10px;
-}
-
-.service-description ul {
-    padding: 25px;
 }
 
 /* Mobile Dropdown Wrapper */
@@ -448,17 +449,16 @@ nav ul li a {
 
 /* Dropdown List */
 .dropdown-list {
-    display: none; /* Hidden by default */
+    display: none;
     position: absolute;
     background-color: #fff;
     border-radius: 50px;
     border: 2px solid #DCDCF3;
     margin-top: 10px;
     width: 100%;
-    z-index: 1;
+    z-index: 5;
     list-style: none;
     padding: 10px 0;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     text-align: left;
 }
@@ -481,9 +481,31 @@ nav ul li a {
     display: block;
 }
 
+@media (max-width: 1750px) {
+    .tab span.break-words {
+        width: 65%;
+    }
+}
+
+@media (max-width: 1470px) {
+    .tab span.break-words {
+        width: 80%;
+    }
+}
+
+@media (max-width: 1330px) {
+    .tab span.break-words {
+        width: 100%;
+    }
+}
+
 @media (max-width: 768px) {
     .tabs {
         display: none;
+    }
+
+    .tab span.break-words {
+        width: 100%;
     }
 
     .services-mobile-dropdown {
@@ -1114,6 +1136,7 @@ input.error, textarea.error {
 
 .inner-page-card p {
     color: #333;
+    min-height: 160px;
 }
 
 .inner-page-card p strong {

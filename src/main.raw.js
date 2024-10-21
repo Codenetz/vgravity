@@ -82,10 +82,10 @@ import './styles.raw.css';
   // Helper Functions
   function updateDisplayedContent(selectedValue) {
     cards.forEach(card => {
-      card.style.display = card.getAttribute('data-key') === selectedValue ? 'block' : 'none';
+      card.style.display = card.getAttribute('data-key') === selectedValue ? 'flex' : 'none';
     });
     serviceDescriptions.forEach(description => {
-      description.style.display = description.getAttribute('data-key') === selectedValue ? 'block' : 'none';
+      description.style.display = description.getAttribute('data-key') === selectedValue ? 'flex' : 'none';
     });
   }
 

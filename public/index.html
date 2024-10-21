@@ -24,9 +24,9 @@
             </ul>
         </nav>
     </header>
-    <video autoplay muted loop playsinline class="background-video" poster="assets/header_video/video_frame.jpg">
-        <source src="assets/header_video/header_video_loop_30fr_crf_28.webm" type="video/webm">
-        Your browser does not support the video tag.
+    <video autoplay muted loop playsinline class="background-video"
+           poster="assets/header_video/video_frame_cmp.jpg">
+        <source src="assets/header_video/header_video_5s.webm" type="video/webm">
     </video>
     <div class="hero-content">
         <div class="content-box">
@@ -49,8 +49,10 @@
 
     <!-- Tabs for Desktop -->
     <div class="tabs">
-        <div class="tab active" data-key="backend-architecture">Backend architecture</div>
-        <div class="tab" data-key="api-development">Backend development</div>
+        <div class="tab" data-key="backend-architecture"><span class="break-words">Backend Architecture</span>
+        </div>
+        <div class="tab active" data-key="api-development"><span
+                class="break-words">Backend Development</span></div>
         <div class="tab" data-key="infrastructure">Infrastructure</div>
         <div class="tab" data-key="devops">DevOps</div>
         <div class="tab" data-key="blockchain">Blockchain</div>
@@ -60,8 +62,8 @@
     <div class="services-mobile-dropdown">
         <button class="dropdown-button">API Development</button>
         <ul class="dropdown-list">
-            <li class="dropdown-item" data-key="backend-architecture">Backend architecture</li>
-            <li class="dropdown-item" data-key="api-development">Backend development</li>
+            <li class="dropdown-item" data-key="backend-architecture">Backend Architecture</li>
+            <li class="dropdown-item" data-key="api-development">Backend Development</li>
             <li class="dropdown-item" data-key="infrastructure">Infrastructure</li>
             <li class="dropdown-item" data-key="devops">DevOps</li>
             <li class="dropdown-item" data-key="blockchain">Blockchain</li>
@@ -69,7 +71,46 @@
     </div>
 
     <div class="service-cards">
-        <div class="inner-page-content row_2" data-key="backend-architecture">
+
+        <!-- Backend development -->
+        <div class="inner-page-content row_3 service-description" data-key="api-development">
+            <div class="inner-page-card">
+                <div class="icon">
+                    <img src="assets/images/icon_cog.png" alt="Gear Icon">
+                </div>
+                <h3>Secure and Scalable API Development</h3>
+                <p>Developing your back-end's core business logic and functionality.
+                    We build REST, RPC, or GraphQL APIs with full documentation, ensuring
+                    robust and maintainable solutions.
+                </p>
+                <a href="backend-development.html" class="service-redirect-button">Backend
+                    Development <img src="assets/arrow.png" alt=""/></a>
+            </div>
+            <div class="inner-page-card">
+                <div class="icon">
+                    <img src="assets/images/icon_cog.png" alt="Gear Icon">
+                </div>
+                <h3>Real-Time Communication Solutions</h3>
+                <p>Building applications with real-time communication using Socket.IO,
+                    enabling seamless, real-time interactions within your applications.</p>
+                <a href="backend-development.html" class="service-redirect-button">Backend
+                    Development <img src="assets/arrow.png" alt=""/></a>
+            </div>
+            <div class="inner-page-card">
+                <div class="icon">
+                    <img src="assets/images/icon_cog.png" alt="Gear Icon">
+                </div>
+                <h3>3rd Party Service Integrations</h3>
+                <p>Seamlessly integrate third-party services from Stripe, Facebook, Google, AWS,
+                    PayPal,
+                    Slack, Mailchimp, and more to enhance functionality and user experience.</p>
+                <a href="backend-development.html" class="service-redirect-button">Backend
+                    Development <img src="assets/arrow.png" alt=""/></a>
+            </div>
+        </div>
+
+        <!-- Backend architecture -->
+        <div class="inner-page-content row_2 service-description" data-key="backend-architecture" style="display: none;">
             <div class="inner-page-card">
                 <div class="icon">
                     <img src="assets/images/icon_cog.png" alt="Gear Icon">
@@ -81,6 +122,8 @@
                     technologies,
                     and ensure seamless integration between modules.
                 </p>
+                <a href="backend-architecture.html" class="service-redirect-button">Backend
+                    Architecture <img src="assets/arrow.png" alt=""/></a>
             </div>
             <div class="inner-page-card">
                 <div class="icon">
@@ -93,27 +136,9 @@
                     database
                     with initial data for testing and development.
                 </p>
+                <a href="backend-architecture.html" class="service-redirect-button">Backend
+                    Architecture <img src="assets/arrow.png" alt=""/></a>
             </div>
-        </div>
-
-        <div class="card" data-key="api-development" style="display: none;">
-            <h3>Secure and Scalable API Development</h3>
-            <p>Developing your back-end's core business logic and functionality.
-                We build REST, RPC, or GraphQL APIs with full documentation, ensuring
-                robust and maintainable solutions.
-            </p>
-        </div>
-
-        <div class="card" data-key="api-development" style="display: none;">
-            <h3>Real-Time Communication Solutions</h3>
-            <p>Building applications with real-time communication using Socket.IO,
-                enabling seamless, real-time interactions within your applications.</p>
-        </div>
-
-        <div class="card" data-key="api-development" style="display: none;">
-            <h3>3rd Party Service Integrations</h3>
-            <p>Seamlessly integrate third-party services from Stripe, Facebook, Google, AWS, PayPal,
-                Slack, Mailchimp, and more to enhance functionality and user experience.</p>
         </div>
 
         <div class="card" data-key="infrastructure" style="display: none;">
@@ -182,175 +207,6 @@
         </div>
     </div>
 
-    <div class="service-description" data-key="backend-architecture">
-        <h3>What Is Backend Architecture?</h3>
-        <p>
-            Backend architecture is the structural design and organization of the server-side
-            components of an application. It encompasses everything from databases, servers, APIs,
-            and business logic to security protocols and server configurations. These elements work
-            together to process data, manage storage, ensure security, and enable communication with
-            the frontend. This architecture dictates how components interact and function, ensuring
-            seamless data flow, optimal resource utilization, and effective communication between
-            different parts of your system. A well-designed backend architecture is responsible for
-            ensuring the application functions efficiently, securely, and can scale with increasing
-            demands, ultimately delivering a superior user experience.
-        </p>
-
-        <br/>
-        <h3>Key Principles We Follow</h3>
-
-        <p>Elevate your application's performance and reliability with our <strong>comprehensive
-            backend architecture services</strong>. We specialize in crafting robust server-side
-            architectures that serve as the backbone of your software solutions. Our designs ensure
-            your applications are <strong>highly scalable, secure, and efficient</strong>, capable
-            of meeting both current demands and future growth. Trust us to build a backend
-            infrastructure that keeps your operations running smoothly and your users satisfied.</p>
-        <ul>
-            <li><strong>Modular Scalability:</strong> We design systems that can effortlessly
-                <strong>scale horizontally and vertically</strong>, accommodating increased loads
-                and facilitating easy expansion without compromising performance.
-            </li>
-            <li><strong>Security First:</strong> Security is integrated into every layer of our
-                architecture. We employ advanced encryption methods, secure authentication
-                mechanisms, and regular vulnerability assessments to keep your data and services
-                <strong>protected against threats</strong>.
-            </li>
-            <li><strong>High Availability:</strong> We ensure your backend systems are designed for
-                <strong>maximum uptime</strong>, using strategies like load balancing, clustering,
-                and redundancy to prevent single points of failure and ensure continuous operation.
-            </li>
-            <li><strong>Efficient Data Management:</strong> Our expertise in database technologies,
-                both SQL and NoSQL, allows us to choose and configure the best data storage
-                solutions for your needs, ensuring <strong>fast access, data integrity, and
-                    scalability</strong>.
-            </li>
-            <li><strong>Robust API Development:</strong> We build well-documented, secure, and
-                scalable APIs that facilitate seamless integration and communication between
-                services and with external systems, enhancing your application's <strong>interoperability
-                    and extensibility</strong>.
-            </li>
-            <li><strong>Event-Driven Systems:</strong> We incorporate event-driven architecture to
-                enable real-time processing and responsiveness, ensuring your application can
-                <strong>handle asynchronous operations</strong> efficiently.
-            </li>
-            <li><strong>DevOps Integration:</strong> By adopting DevOps practices, we streamline
-                development and deployment processes, enabling <strong>continuous integration and
-                    continuous deployment (CI/CD)</strong> for faster delivery and updates.
-            </li>
-        </ul>
-
-        <p><strong>Contact us today</strong> to discover how our backend architecture services can
-            transform your application into a high-performing, reliable, and secure powerhouse that
-            drives your business success.</p>
-
-    </div>
-    <div class="service-description" data-key="api-development" style="display: none;">
-        <p>Build a powerful, reliable backend that forms the backbone of your application. Our
-            expert backend development services focus on creating robust and scalable solutions that
-            ensure seamless operation, fast performance, and enhanced security. From designing APIs
-            to implementing complex business logic, we handle all aspects of backend development to
-            meet your unique needs.</p>
-
-        <h3>What is Backend Development?</h3>
-        <p>The backend of an application is where all the heavy lifting happens—managing databases,
-            handling server logic, and processing business rules. It's the unseen engine that powers
-            your application, ensuring that data flows smoothly between users, servers, and
-            databases.</p>
-
-        <h3>Key Principles We Follow</h3>
-        <p>Our backend development is guided by industry-leading principles to ensure
-            maintainability, scalability, and performance.</p>
-        <ul>
-            <li><strong>Security Best Practices:</strong> We implement security measures throughout
-                the development process to protect your applications from vulnerabilities and
-                threats.
-            </li>
-            <li><strong>Refactoring:</strong> We continuously improve code by refactoring, enhancing
-                performance, and maintaining code quality over time.
-            </li>
-            <li><strong>Performance Optimization:</strong> We optimize code and systems for
-                performance, ensuring your application runs efficiently and provides an excellent
-                user experience.
-            </li>
-            <li><strong>Dependency Management:</strong> We carefully manage software dependencies to
-                ensure compatibility and stability in your applications.
-            </li>
-            <li><strong>Containerization (Docker):</strong> We use Docker to containerize
-                applications, ensuring consistency across environments and simplifying deployment.
-            </li>
-            <li><strong>Logging and Monitoring:</strong> We implement robust logging and monitoring
-                solutions to proactively identify and resolve issues, ensuring system reliability.
-            </li>
-            <li><strong>Test-Driven Development (TDD):</strong> We implement TDD to build reliable
-                and bug-free software by writing tests before coding, ensuring each component
-                functions as intended.
-            </li>
-            <li><strong>Continuous Integration/Continuous Deployment (CI/CD):</strong> We utilize
-                CI/CD pipelines to automate testing and deployment processes, resulting in faster
-                delivery and higher-quality code.
-            </li>
-            <li><strong>Design Patterns:</strong> We apply proven design patterns to solve common
-                problems efficiently, improving code readability and reducing development time.
-            </li>
-            <li><strong>Version Control (Git):</strong> We use Git to manage code changes
-                effectively, enabling collaboration and easy rollbacks when
-                necessary.
-            </li>
-            <li><strong>Clean Code Principles:</strong> We write clean, readable, and maintainable
-                code, making it easier to understand, extend, and support your application over
-                time.
-            </li>
-            <li><strong>Comprehensive Documentation:</strong> We provide detailed documentation for
-                our code and systems, facilitating easier maintenance and onboarding of new
-                developers.
-            </li>
-            <li><strong>Continuous Learning:</strong> Our team stays updated with the latest
-                technologies and industry trends to provide you with cutting-edge solutions.
-            </li>
-            <li><strong>Scalable Architecture Design:</strong> We design system architectures that
-                can handle growing user bases and increased loads without sacrificing performance.
-            </li>
-        </ul>
-
-
-        <h3>APIs and Integrations</h3>
-        <p>We specialize in developing robust APIs that enable
-            your application to communicate seamlessly with other services, platforms, and
-            frontends. Whether you need RESTful APIs, RPC, or GraphQL, we create secure and scalable
-            interfaces that ensure smooth data flow between your systems and third-party
-            services.</p>
-
-        <h3>Automated Testing</h3>
-        <p>Quality is at the heart of our development process. We integrate comprehensive testing
-            strategies, including:</p>
-        <ul>
-            <li><strong>Unit Tests:</strong> To ensure each individual function or method works as
-                expected.
-            </li>
-            <li><strong>Integration Tests:</strong> To verify that different parts of the system
-                work together correctly.
-            </li>
-            <li><strong>End-to-End Testing:</strong> To simulate real-world scenarios, ensuring your
-                backend performs reliably under actual use conditions.
-            </li>
-        </ul>
-
-        <h3>Database Management and Optimization</h3>
-        <p>We are experienced in designing and managing both SQL and NoSQL databases. Whether you're
-            handling complex queries or high-volume transactions, our team ensures your database is
-            optimized for speed, scalability, and reliability.</p>
-
-        <h3>Security Best Practices</h3>
-        <p>Security is our top priority. We follow industry best practices for securing your
-            backend, from encrypting sensitive data to ensuring safe API endpoints. Our team adheres
-            to security standards such as OWASP to protect your application from common
-            vulnerabilities.</p>
-
-        <p>With a focus on maintainability, scalability, and performance, our backend development
-            services are designed to support your long-term growth. <strong>Contact us
-                today</strong> to build a reliable, high-performing backend for your business.</p>
-
-    </div>
     <div class="service-description" data-key="infrastructure" style="display: none;">
         <h3>Advanced AWS Infrastructure Setup</h3>
         <p>Empower your business with custom AWS infrastructure solutions designed for <strong>scalability,
