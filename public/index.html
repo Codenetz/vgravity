@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VGravity backend development</title>
+    <title>VGravity</title>
     <link rel="stylesheet" href="dist/main.min.css">
     <script src="dist/main.min.js" async></script>
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
@@ -18,9 +18,41 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact" class="cta-button">Contact Us</a></li>
+                <li>
+                    <a href="index.html#services">Services</a>
+                    <div class="menu-container">
+                        <ul class="child-menu">
+                            <li><a href="backend-architecture.html">
+                                <span class="icon">
+                                    <img src="assets/icons_40px/infrastructure/structure.png"
+                                         alt="">
+                                </span>
+                                Backend Architecture
+                            </a></li>
+                            <li><a href="backend-development.html">
+                                <span class="icon">
+                                    <img src="assets/icons_40px/backend_development/clean_code.png"
+                                         alt="">
+                                </span>
+                                Backend Development
+                            </a></li>
+                            <li><a href="devops.html">
+                                <span class="icon">
+                                    <img src="assets/icons_40px/devops/devops.png" alt="">
+                                </span>
+                                DevOps
+                            </a></li>
+                            <li><a href="blockchain.html">
+                                <span class="icon">
+                                    <img src="assets/icons_40px/blockchain/blockchain.png" alt="">
+                                </span>
+                                Blockchain
+                            </a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact" class="cta-button">Contact Us</a></li>
             </ul>
         </nav>
     </header>
@@ -53,7 +85,6 @@
         </div>
         <div class="tab active" data-key="api-development"><span
                 class="break-words">Backend Development</span></div>
-        <div class="tab" data-key="infrastructure">Infrastructure</div>
         <div class="tab" data-key="devops">DevOps</div>
         <div class="tab" data-key="blockchain">Blockchain</div>
     </div>
@@ -64,7 +95,6 @@
         <ul class="dropdown-list">
             <li class="dropdown-item" data-key="backend-architecture">Backend Architecture</li>
             <li class="dropdown-item" data-key="api-development">Backend Development</li>
-            <li class="dropdown-item" data-key="infrastructure">Infrastructure</li>
             <li class="dropdown-item" data-key="devops">DevOps</li>
             <li class="dropdown-item" data-key="blockchain">Blockchain</li>
         </ul>
@@ -72,13 +102,58 @@
 
     <div class="service-cards">
 
+        <!-- Backend architecture -->
+        <div class="inner-page-content row_3 service-description" data-key="backend-architecture"
+             style="display: none;">
+            <div class="inner-page-card">
+                <div class="icon">
+                    <img src="assets/images/icon_cog.png" alt="Gear Icon">
+                </div>
+                <h3>Software Blueprint</h3>
+                <p>We create a blueprint for your application's backend architecture, defining
+                    component
+                    structure, interactions, and data flow. We assess requirements, select
+                    technologies,
+                    and ensure seamless integration between modules.
+                </p>
+                <a href="backend-architecture.html" class="service-redirect-button">Backend
+                    Architecture <img src="assets/arrow.png" alt=""/></a>
+            </div>
+            <div class="inner-page-card">
+                <div class="icon">
+                    <img src="assets/images/icon_cog.png" alt="Gear Icon">
+                </div>
+                <h3>Design Database Schema</h3>
+                <p>We provide a structured approach to selecting the right database system (SQL,
+                    NoSQL),
+                    designing schemas, defining tables and relationships, and setting up the
+                    database
+                    with initial data for testing and development.
+                </p>
+                <a href="backend-architecture.html" class="service-redirect-button">Backend
+                    Architecture <img src="assets/arrow.png" alt=""/></a>
+            </div>
+            <div class="inner-page-card">
+                <div class="icon">
+                    <img src="assets/images/icon_cog.png" alt="Gear Icon">
+                </div>
+                <h3>Infrastructure</h3>
+                <p>Our service provides modern software architecture solutions, including
+                    Monolithic, Microservices, and Serverless Infrastructure, to meet
+                    your scalability, flexibility, and efficiency needs.
+                </p>
+                <a href="backend-architecture.html" class="service-redirect-button">Backend
+                    Architecture <img src="assets/arrow.png" alt=""/></a>
+            </div>
+        </div>
+
         <!-- Backend development -->
         <div class="inner-page-content row_3 service-description" data-key="api-development">
             <div class="inner-page-card">
                 <div class="icon">
                     <img src="assets/images/icon_cog.png" alt="Gear Icon">
                 </div>
-                <h3>Secure and Scalable API Development</h3>
+                <h3>Secure And Scalable API Development</h3>
                 <p>Developing your back-end's core business logic and functionality.
                     We build REST, RPC, or GraphQL APIs with full documentation, ensuring
                     robust and maintainable solutions.
@@ -109,211 +184,68 @@
             </div>
         </div>
 
-        <!-- Backend architecture -->
-        <div class="inner-page-content row_2 service-description" data-key="backend-architecture" style="display: none;">
+        <!-- DevOps-->
+        <div class="inner-page-content row_3 service-description" data-key="devops"
+             style="display: none;">
             <div class="inner-page-card">
                 <div class="icon">
                     <img src="assets/images/icon_cog.png" alt="Gear Icon">
                 </div>
-                <h3>Software Blueprint</h3>
-                <p>We create a blueprint for your application's backend architecture, defining
-                    component
-                    structure, interactions, and data flow. We assess requirements, select
-                    technologies,
-                    and ensure seamless integration between modules.
+                <h3>Development Automation</h3>
+                <p>Automate code integration, testing, and delivery with CI/CD, while managing
+                    infrastructure using IaC for faster, reliable releases and consistent, scalable
+                    environments.
                 </p>
-                <a href="backend-architecture.html" class="service-redirect-button">Backend
-                    Architecture <img src="assets/arrow.png" alt=""/></a>
+                <a href="devops.html" class="service-redirect-button">DevOps <img
+                        src="assets/arrow.png" alt=""/></a>
             </div>
             <div class="inner-page-card">
                 <div class="icon">
                     <img src="assets/images/icon_cog.png" alt="Gear Icon">
                 </div>
-                <h3>Design database schema</h3>
-                <p>We provide a structured approach to selecting the right database system (SQL,
-                    NoSQL),
-                    designing schemas, defining tables and relationships, and setting up the
-                    database
-                    with initial data for testing and development.
+                <h3>Process Automations</h3>
+                <p>Streamlining business processes through custom automation solutions.
+                    Reducing manual effort and increasing operational efficiency.
                 </p>
-                <a href="backend-architecture.html" class="service-redirect-button">Backend
-                    Architecture <img src="assets/arrow.png" alt=""/></a>
+                <a href="devops.html" class="service-redirect-button">DevOps <img
+                        src="assets/arrow.png" alt=""/></a>
+            </div>
+            <div class="inner-page-card">
+                <div class="icon">
+                    <img src="assets/images/icon_cog.png" alt="Gear Icon">
+                </div>
+                <h3>Enhance Security</h3>
+                <p>Integrating security practices into the development pipeline ensures that
+                    security is
+                    seamlessly built into the software from the very beginning, rather than being an
+                    afterthought.
+                </p>
+                <a href="devops.html" class="service-redirect-button">DevOps <img
+                        src="assets/arrow.png" alt=""/></a>
             </div>
         </div>
 
-        <div class="card" data-key="infrastructure" style="display: none;">
-            <h3>Advanced AWS Infrastructure Setup</h3>
-            <p>We have the expertise to design and deploy scalable, secure, and cost-effective AWS
-                infrastructure tailored to your business needs. Our solutions leverage AWS best
-                practices to ensure high availability, performance, and compliance with industry
-                standards.</p>
+        <!-- Solana -->
+        <div class="inner-page-content row_1 service-description" data-key="blockchain"
+             style="display: none;">
+            <div class="inner-page-card">
+                <div class="icon">
+                    <img src="assets/images/icon_cog.png" alt="Gear Icon">
+                </div>
+                <h3>Solana</h3>
+                <p>
+                    Integrating with leading DEXs for automated trading strategies and developing
+                    dApps on Solana, ensuring fast, efficient, and secure blockchain-based
+                    solutions.
+                </p>
+                <a href="blockchain.html" class="service-redirect-button">Blockchain <img
+                        src="assets/arrow.png" alt=""/></a>
+            </div>
         </div>
-
-        <div class="card" data-key="infrastructure" style="display: none;">
-            <h3>Microservice Architecture</h3>
-            <p>Implementing microservice architecture using a message broker,
-                enhancing scalability and reliability of your applications.
-            </p>
-        </div>
-
-        <div class="card" data-key="infrastructure" style="display: none;">
-            <h3>Serverless Architecture</h3>
-            <p>Implementing serverless architecture on any cloud provider, enabling automatic
-                scaling, cost efficiency, and streamlined management of your applications without
-                the need to manage servers.
-            </p>
-        </div>
-
-        <div class="card" data-key="infrastructure" style="display: none;">
-            <h3>Monolithic Architecture</h3>
-            <p>Implementing monolithic architecture, ensuring a unified and tightly integrated
-                application structure, simplifying development, deployment, and management by
-                consolidating all components into a single codebase.
-            </p>
-        </div>
-
-        <div class="card" data-key="devops" style="display: none;">
-            <h3>Development automation</h3>
-            <p>Creating and maintaining sophisticated CI/CD pipelines.
-                Automating build, test, and deployment processes for efficiency and reliability.
-                Utilizing Infrastructure as Code (IaC) with AWS CloudFormation.
-            </p>
-        </div>
-
-        <div class="card" data-key="devops" style="display: none;">
-            <h3>Process Automations</h3>
-            <p>Streamlining business processes through custom automation solutions.
-                Reducing manual effort and increasing operational efficiency.
-            </p>
-        </div>
-
-        <div class="card" data-key="devops" style="display: none;">
-            <h3>Enhance security</h3>
-            <p>Integrating security practices into the development pipeline ensures that security is
-                seamlessly built into the software from the very beginning, rather than being an
-                afterthought.
-            </p>
-        </div>
-
-        <div class="card" data-key="blockchain" style="display: none;">
-            <h3>Solana</h3>
-            <p>
-                Designing and building trading software using the high-performance Solana
-                blockchain,
-                ensuring fast and efficient transactions.
-                Integrations of leading DEXs, enabling efficient token swaps with real-time market
-                tracking.
-            </p>
-        </div>
-    </div>
-
-    <div class="service-description" data-key="infrastructure" style="display: none;">
-        <h3>Advanced AWS Infrastructure Setup</h3>
-        <p>Empower your business with custom AWS infrastructure solutions designed for <strong>scalability,
-            security, and cost-efficiency</strong>. Our expert team builds cloud environments
-            that not only meet your current needs but also adapt as your business grows. By
-            adhering to AWS best practices, we ensure <strong>seamless performance, robust
-                security, and full compliance</strong> with the latest industry standards. Let
-            us manage the technical complexities, allowing you to stay focused on innovation and
-            business growth.</p>
-
-        <h3>Microservice Architecture</h3>
-        <p>Boost the scalability and reliability of your applications by adopting a <strong>microservice
-            architecture</strong>. We implement microservices with a message broker, allowing
-            each service to operate independently. This ensures that your application scales
-            effortlessly as your business grows while maintaining superior performance and
-            uptime.</p>
-        <p>With a microservice architecture, you gain:</p>
-        <ul>
-            <li><strong>Improved scalability:</strong> Scale individual services without
-                impacting the entire system.
-            </li>
-            <li><strong>Increased reliability:</strong> Isolate failures so they don't affect
-                other parts of the application.
-            </li>
-            <li><strong>Flexibility in development:</strong> Microservices enable continuous
-                deployment and allow for independent upgrades of each service.
-            </li>
-            <li><strong>Ease of integration:</strong> Use different technologies or languages
-                for each microservice, tailored to its specific function.
-            </li>
-        </ul>
-
-        <h3>Serverless Architecture</h3>
-        <p>Take advantage of the future of cloud computing with <strong>serverless
-            architecture</strong>. We implement serverless solutions across any cloud provider,
-            enabling your application to <strong>automatically scale</strong> without the need
-            for server management. Enjoy significant cost savings and a streamlined operational
-            workflow, paying only for the compute power you use.</p>
-        <p>Our serverless architecture solutions offer:</p>
-        <ul>
-            <li><strong>Automatic scaling:</strong> Scale your applications based on demand
-                without manual intervention.
-            </li>
-            <li><strong>Cost efficiency:</strong> Pay only for the resources your applications
-                consume, reducing unnecessary costs.
-            </li>
-            <li><strong>Faster time-to-market:</strong> Focus on writing code, while we handle
-                the infrastructure, speeding up development cycles.
-            </li>
-            <li><strong>Simplified management:</strong> No servers to maintain, patch, or
-                update—allowing you to focus on business priorities.
-            </li>
-        </ul>
-
-        <h3>Monolithic Architecture</h3>
-        <p>For simpler application needs, we offer robust <strong>monolithic
-            architecture</strong> solutions. By consolidating all components into a single
-            codebase, this approach simplifies development, deployment, and management. If
-            you’re looking for a unified and tightly integrated solution, our monolithic
-            architecture will provide exactly that, delivering efficiency and ease of use.</p>
-        <p>Our monolithic architecture solution is ideal for:</p>
-        <ul>
-            <li><strong>Unified structure:</strong> All components are developed and deployed as
-                one cohesive unit, simplifying your development process.
-            </li>
-            <li><strong>Reduced complexity:</strong> A single codebase makes it easier to
-                understand, debug, and manage the application.
-            </li>
-            <li><strong>Faster development:</strong> With fewer moving parts, development is
-                straightforward and more predictable for smaller applications.
-            </li>
-            <li><strong>Simplified deployment:</strong> Easily roll out new versions or updates
-                without managing multiple, independent services.
-            </li>
-        </ul>
-
-        <p>We tailor each solution to meet your business’s specific needs, whether you're
-            looking for the flexibility of microservices, the scalability of serverless, or the
-            simplicity of monolithic architecture. Our team will ensure your system is optimized
-            for performance, security, and cost-effectiveness. <strong>Contact us today</strong>
-            to get started with the perfect infrastructure setup for your business.</p>
-    </div>
-
-    <div class="service-description" data-key="devops" style="display: none;">
-        <h3>What is DevOps?</h3>
-        <p>
-            DevOps is a set of practices and tools that integrate software development (Dev) and IT
-            operations (Ops) to streamline the development lifecycle. It focuses on automation,
-            continuous integration and delivery (CI/CD), collaboration between teams, and real-time
-            monitoring. DevOps enhances efficiency, reduces errors, and enables faster, more
-            reliable software releases.
-        </p>
-    </div>
-
-    <div class="service-description" data-key="blockchain" style="display: none;">
-        <h3>What is Solana?</h3>
-        <p>
-            Solana is a high-performance blockchain designed for decentralized applications (dApps)
-            with fast transaction speeds and low fees. It uses a unique Proof of History (PoH)
-            consensus mechanism, allowing it to process up to 65,000 transactions per second.
-            Solana’s architecture is highly scalable and does not require layer-2 solutions, making
-            it ideal for applications like DeFi, gaming, and NFTs.
-        </p>
     </div>
 </section>
 
-<div class="clearfix">&nbsp;</div>
+<div class="clearfix"></div>
 
 <section id="about" class="section">
     <h4>ABOUT US</h4>
@@ -343,12 +275,14 @@
         </div>
         <div class="skill-box">
             <h3>Comprehensive Support</h3>
-            <p>We offer end-to-end support—from initial consultation and design to deployment and
-                maintenance—ensuring your backend operates smoothly at all times.</p>
+            <p>We offer end-to-end support&mdash;from initial consultation and design to deployment
+                and
+                maintenance&mdash;ensuring your backend operates smoothly at all times.</p>
         </div>
         <div class="skill-box">
-            <h3>Adherence to Best Practices</h3>
-            <p>We follow industry best practices, to build maintainable and efficient systems.</p>
+            <h3>Collaboration with Frontend &amp; Design Experts</h3>
+            <p>We collaborate with external frontend and graphic designers to deliver cohesive,
+                visually appealing, and user-friendly applications.</p>
         </div>
     </div>
 </section>

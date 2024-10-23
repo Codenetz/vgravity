@@ -100,6 +100,57 @@ nav ul li a {
     font-weight: 400;
 }
 
+.menu-container {
+    position: absolute;
+    display: none;
+    height: 300px;
+    width: 350px;
+    margin: 0 auto;
+}
+
+nav ul li:hover .menu-container {
+    display: block;
+}
+
+ul.child-menu {
+    position: absolute;
+    right: 0;
+    width: 350px;
+    background: white;
+    border-radius: 18px;
+    border: 1px solid #E3E3E3;
+    z-index: 1000;
+    display: block;
+    margin-top: 20px;
+}
+
+ul.child-menu li {
+    border-bottom: 1px solid #E3E3E3;
+}
+
+ul.child-menu li:last-child {
+    border: none;
+}
+
+ul.child-menu a {
+    color: #aaaaaa !important;
+    text-transform: none;
+    font-size: 15px;
+    display: block;
+    padding: 25px 45px;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+ul.child-menu a:hover {
+    color: #000 !important;
+}
+
+ul.child-menu .icon img {
+    width: 20px;
+}
+
 .contact-button {
     border: 2px solid #fff;
     padding: 10px 20px;
@@ -547,21 +598,22 @@ nav ul li a {
 
 /* About us */
 .skills-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    padding: 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 25px;
     position: relative;
     background: url('./../public/assets/images/logo_icon_outline.png') no-repeat left top;
-    background-size: 924px;
     border: 2px solid #DCDCF3;
     border-radius: 50px;
     overflow: hidden;
-    min-height: 500px;
 }
 
 .skill-box {
-    padding: 50px;
+    box-sizing: border-box;
+    flex: 1 1 30%;
+    margin: 0;
+    padding: 30px 15px 0;
     text-align: left;
 }
 
@@ -1007,7 +1059,7 @@ input.error, textarea.error {
 
 .inner-page-title h1 {
     color: #3A1660;
-    font-size: 60px;
+    font-size: 50px;
     font-weight: bold;
     text-transform: uppercase;
     margin: 0;
@@ -1035,15 +1087,15 @@ input.error, textarea.error {
 
 /* Gravity Background */
 .gravity-bg {
-    background: linear-gradient(rgba(24, 11, 51, 0) 0%, #1B1523 100%, rgba(11, 7, 34, 0.5) 50%), url('./../public/assets/images/header-vg.jpg') no-repeat;
+    background: url('./../public/assets/service_bg.jpg') no-repeat;
     background-size: cover;
     color: #FFFFFF;
 }
 
 .inner-page-section {
     position: relative;
-    width: 100%;
     overflow: hidden;
+    margin-bottom: 60px;
 }
 
 .inner-page-content {
@@ -1057,7 +1109,7 @@ input.error, textarea.error {
 }
 
 .inner-page-content {
-    padding: 70px 70px 70px 0;
+    padding: 25px 70px 25px 0;
     text-align: left;
     font-weight: 400;
 }
@@ -1068,7 +1120,7 @@ input.error, textarea.error {
 }
 
 .inner-page-section h2 {
-    font-size: 32px;
+    font-size: 28px;
     line-height: 45px;
 }
 
@@ -1136,7 +1188,7 @@ input.error, textarea.error {
 
 .inner-page-card p {
     color: #333;
-    min-height: 160px;
+    min-height: 200px;
 }
 
 .inner-page-card p strong {
@@ -1283,7 +1335,7 @@ input.error, textarea.error {
     }
 
     .inner-page-title h1 {
-        font-size: 50px;
+        font-size: 35px;
     }
 }
 

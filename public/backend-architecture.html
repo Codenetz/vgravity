@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VGravity privacy policy</title>
+    <title>VGravity | Backend Architecture</title>
     <link rel="stylesheet" href="dist/main.min.css">
     <script src="dist/main.min.js" async></script>
 </head>
@@ -17,7 +17,39 @@
         </div>
         <nav>
             <ul>
-                <li><a href="index.html#services">Services</a></li>
+                <li>
+                    <a href="index.html#services">Services</a>
+                    <div class="menu-container">
+                        <ul class="child-menu">
+                            <li><a href="backend-architecture.html">
+                                <span class="icon">
+                                    <img src="assets/icons_40px/infrastructure/structure.png"
+                                         alt="">
+                                </span>
+                                Backend Architecture
+                            </a></li>
+                            <li><a href="backend-development.html">
+                                <span class="icon">
+                                    <img src="assets/icons_40px/backend_development/clean_code.png"
+                                         alt="">
+                                </span>
+                                Backend Development
+                            </a></li>
+                            <li><a href="devops.html">
+                                <span class="icon">
+                                    <img src="assets/icons_40px/devops/devops.png" alt="">
+                                </span>
+                                DevOps
+                            </a></li>
+                            <li><a href="blockchain.html">
+                                <span class="icon">
+                                    <img src="assets/icons_40px/blockchain/blockchain.png" alt="">
+                                </span>
+                                Blockchain
+                            </a></li>
+                        </ul>
+                    </div>
+                </li>
                 <li><a href="index.html#about">About</a></li>
                 <li><a href="index.html#contact" class="cta-button">Contact Us</a></li>
             </ul>
@@ -28,34 +60,8 @@
     <h1>BACKEND ARCHITECTURE</h1>
 </div>
 <section class="inner-page-section">
-    <div class="logo-bg text-center">
-        <h2>Software Blueprint & Design Database Schema</h2>
-        <div class="inner-page-content row_2">
-            <div class="inner-page-card">
-                <div class="icon">
-                    <img src="assets/images/icon_cog.png" alt="Gear Icon">
-                </div>
-                <h3>Software Blueprint</h3>
-                <p>We create a blueprint for your application's backend architecture, defining
-                    component
-                    structure, interactions, and data flow. We assess requirements, select
-                    technologies,
-                    and ensure seamless integration between modules.
-                </p>
-            </div>
-            <div class="inner-page-card">
-                <div class="icon">
-                    <img src="assets/images/icon_cog.png" alt="Gear Icon">
-                </div>
-                <h3>Design database schema</h3>
-                <p>We provide a structured approach to selecting the right database system (SQL,
-                    NoSQL),
-                    designing schemas, defining tables and relationships, and setting up the
-                    database
-                    with initial data for testing and development.
-                </p>
-            </div>
-        </div>
+    <div class="text-center">
+        <h2>Software Blueprint, Design Database Schema & Infrastructure</h2>
     </div>
 </section>
 <section class="inner-page-section">
@@ -90,7 +96,7 @@
                 </p>
             </div>
             <div class="image-column">
-                <img src="assets/images/backend-architecture_1.png"
+                <img src="assets/services_illustrations/backend_architecture.png"
                      alt="Backend Architecture">
             </div>
         </div>
@@ -122,7 +128,7 @@
             <div class="principle-card">
                 <div class="icon-heading-container">
                 <span class="icon">
-                    <img src="assets/images/icon/modular_scalability.png" alt="">
+                    <img src="assets/icons_40px/backend_architecture/modular_scalability.png" alt="">
                 </span>
                     <h3>Modular Scalability</h3>
                 </div>
@@ -134,7 +140,7 @@
             <div class="principle-card">
                 <div class="icon-heading-container">
                 <span class="icon">
-                    <img src="assets/images/icon_check.png" alt="">
+                    <img src="assets/icons_40px/backend_architecture/high_availability.png" alt="">
                 </span>
                     <h3>High Availability</h3>
                 </div>
@@ -147,7 +153,7 @@
             <div class="principle-card">
                 <div class="icon-heading-container">
                 <span class="icon">
-                    <img src="assets/images/icon_check_shield.png" alt="">
+                    <img src="assets/icons_40px/backend_architecture/security.png" alt="">
                 </span>
                     <h3>Security First</h3>
                 </div>
@@ -161,7 +167,7 @@
             <div class="principle-card">
                 <div class="icon-heading-container">
                 <span class="icon">
-                    <img src="assets/images/icon_graph.png" alt="">
+                    <img src="assets/icons_40px/backend_architecture/efficient_data_management.png" alt="">
                 </span>
                     <h3>Efficient Data Management</h3>
                 </div>
@@ -174,7 +180,7 @@
             <div class="principle-card">
                 <div class="icon-heading-container">
                 <span class="icon">
-                    <img src="assets/images/icon_code.png" alt="">
+                    <img src="assets/icons_40px/backend_architecture/robust_api_dev.png" alt="">
                 </span>
                     <h3>Robust API Development</h3>
                 </div>
@@ -188,13 +194,184 @@
 
                 <div class="icon-heading-container">
                 <span class="icon">
-                    <img src="assets/images/icon_2.png" alt="">
+                    <img src="assets/icons_40px/backend_architecture/event_driven_system.png" alt="">
                 </span>
                     <h3>Event-Driven System</h3>
                 </div>
                 <p>We incorporate event-driven architecture to
                     enable real-time processing and responsiveness, ensuring your application can
                     <strong>handle asynchronous operations</strong> efficiently
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="inner-page-section key-principles-section">
+    <div class="inner-page-content">
+        <div class="text-section">
+            <div class="left-content">
+                <h2>Microservice</h2>
+                <h3>Architecture.</h3>
+            </div>
+            <div class="right-content">
+                <p>Boost the scalability and reliability of your applications by adopting
+                    a microservice architecture. We implement microservices with a message broker,
+                    allowing each service to operate independently.
+
+                    This ensures that your application scales effortlessly as your business grows
+                    while maintaining superior performance and uptime.
+
+                    With a microservice architecture, you gain:
+                </p>
+            </div>
+        </div>
+        <div class="principles-row">
+            <div class="principle-card">
+                <div class="icon-heading-container">
+                <span class="icon">
+                    <img src="assets/icons_40px/backend_architecture/modular_scalability.png" alt="">
+                </span>
+                    <h3>Improved scalability</h3>
+                </div>
+                <p>
+                    Scale individual services without
+                    impacting the entire system.
+                </p>
+            </div>
+            <div class="principle-card">
+                <div class="icon-heading-container">
+                <span class="icon">
+                    <img src="assets/icons_40px/infrastructure/robust_dev.png" alt="">
+                </span>
+                    <h3>Increased reliability</h3>
+                </div>
+                <p>Isolate failures so they don't
+                    affect other parts of the application.
+                </p>
+            </div>
+            <div class="principle-card">
+                <div class="icon-heading-container">
+                <span class="icon">
+                    <img src="assets/icons_40px/infrastructure/integration_1.png" alt="">
+                </span>
+                    <h3>Flexibility in development</h3>
+                </div>
+                <p>
+                    Microservices allow for independent upgrades of each service and support the use
+                    of different technologies or languages tailored to the specific function of each
+                    microservice.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="inner-page-section key-principles-section">
+    <div class="inner-page-content">
+        <div class="text-section">
+            <div class="left-content">
+                <h2>Serverless</h2>
+                <h3>Architecture.</h3>
+            </div>
+            <div class="right-content">
+                <p>We
+                    implement serverless solutions across many cloud providers, enabling your
+                    application to automatically scale without the need for server management. Enjoy
+                    significant cost savings and a streamlined operational workflow, paying only for
+                    the compute power you use.
+
+                    Our serverless architecture solutions offer:
+                </p>
+            </div>
+        </div>
+        <div class="principles-row">
+            <div class="principle-card">
+                <div class="icon-heading-container">
+                <span class="icon">
+                    <img src="assets/icons_40px/infrastructure/cost.png" alt="">
+                </span>
+                    <h3>Automatic Scaling &amp; Cost Efficiency</h3>
+                </div>
+                <p>Automatically scale based on demand and pay only for the resources you use,
+                    minimizing unnecessary costs.
+                </p>
+            </div>
+            <div class="principle-card">
+                <div class="icon-heading-container">
+                <span class="icon">
+                    <img src="assets/icons_40px/infrastructure/faster_time_to_market.png" alt="">
+                </span>
+                    <h3>Faster time-to-market</h3>
+                </div>
+                <p>
+                    Focus on writing code, while we
+                    handle
+                    the infrastructure, speeding up development cycles.
+                </p>
+            </div>
+            <div class="principle-card">
+                <div class="icon-heading-container">
+                <span class="icon">
+                    <img src="assets/icons_40px/infrastructure/simplified_management.png" alt="">
+                </span>
+                    <h3>Simplified Management</h3>
+                </div>
+                <p>
+                    No servers to maintain, patch, or
+                    update—allowing you to focus on business priorities.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="inner-page-section key-principles-section">
+    <div class="inner-page-content">
+        <div class="text-section">
+            <div class="left-content">
+                <h2>Monolithic</h2>
+                <h3>Architecture.</h3>
+            </div>
+            <div class="right-content">
+                <p>Implementing monolithic architecture, ensuring a unified and tightly integrated
+                    application structure, simplifying development, deployment, and management by
+                    consolidating all components into a single codebase.
+                </p>
+            </div>
+        </div>
+        <div class="principles-row">
+            <div class="principle-card">
+                <div class="icon-heading-container">
+                <span class="icon">
+                    <img src="assets/icons_40px/infrastructure/structure.png" alt="">
+                </span>
+                    <h3>Unified Structure</h3>
+                </div>
+                <p>All components are built and deployed as a cohesive unit, streamlining
+                    development and deployment.
+                </p>
+            </div>
+            <div class="principle-card">
+                <div class="icon-heading-container">
+                <span class="icon">
+                    <img src="assets/icons_40px/infrastructure/reduced_complexity.png" alt="">
+                </span>
+                    <h3>Reduced Complexity</h3>
+                </div>
+                <p>With fewer moving parts, development is
+                    straightforward and more predictable for smaller applications.
+                    A single codebase makes it easier to
+                    understand, debug, and manage the application.
+                </p>
+            </div>
+            <div class="principle-card">
+                <div class="icon-heading-container">
+                <span class="icon">
+                    <img src="assets/icons_40px/infrastructure/deployment.png" alt="">
+                </span>
+                    <h3>Simplified Deployment</h3>
+                </div>
+                <p>
+                    Easily roll out updates or new versions without the complexity of handling
+                    multiple independent services.
                 </p>
             </div>
         </div>
