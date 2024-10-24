@@ -65,11 +65,6 @@ document.addEventListener('DOMContentLoaded', function () {
     toggleBodyScroll();
   });
 
-  document.getElementById('mobile-menu').addEventListener('touchend', function () {
-    mobileNav.classList.toggle('active');
-    toggleBodyScroll();
-  });
-
   document.getElementById('close-menu').addEventListener('click', function () {
     mobileNav.classList.toggle('active');
     toggleBodyScroll();
@@ -121,73 +116,75 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // Contact form
-  contactForm.addEventListener('submit', async event => {
-    event.preventDefault();
-    clearErrors();
-    hideErrorMessage();
-    showLoadingOverlay();
+  if (contactForm) {
+    contactForm.addEventListener('submit', async event => {
+      event.preventDefault();
+      clearErrors();
+      hideErrorMessage();
+      showLoadingOverlay();
 
-    const fullname = fullnameInput ? fullnameInput.value.trim() : '';
-    const email = emailInput ? emailInput.value.trim() : '';
-    const message = messageInput ? messageInput.value.trim() : '';
-    const captchaToken = captchaTokenInput ? captchaTokenInput.value.trim() : '';
-    const termsAccepted = termsCheckbox ? termsCheckbox.checked : false;
+      const fullname = fullnameInput ? fullnameInput.value.trim() : '';
+      const email = emailInput ? emailInput.value.trim() : '';
+      const message = messageInput ? messageInput.value.trim() : '';
+      const captchaToken = captchaTokenInput ? captchaTokenInput.value.trim() : '';
+      const termsAccepted = termsCheckbox ? termsCheckbox.checked : false;
 
-    let isValid = true;
+      let isValid = true;
 
-    if (!fullname) {
-      showError('fullname-error', 'Please enter your full name.');
-      isValid = false;
-    }
+      if (!fullname) {
+        showError('fullname-error', 'Please enter your full name.');
+        isValid = false;
+      }
 
-    if (!validateEmail(email)) {
-      showError('email-error', 'Please enter a valid email address.');
-      isValid = false;
-    }
+      if (!validateEmail(email)) {
+        showError('email-error', 'Please enter a valid email address.');
+        isValid = false;
+      }
 
-    if (!message) {
-      showError('message-error', 'Please enter a message.');
-      isValid = false;
-    }
+      if (!message) {
+        showError('message-error', 'Please enter a message.');
+        isValid = false;
+      }
 
-    if (!captchaToken) {
-      showError('captcha-error', 'Captcha error.');
-      isValid = false;
-    }
+      if (!captchaToken) {
+        showError('captcha-error', 'Captcha error.');
+        isValid = false;
+      }
 
-    if (!termsAccepted) {
-      showError('terms-error', 'Please accept the Terms & Conditions and Privacy Policy.');
-      isValid = false;
-    }
+      if (!termsAccepted) {
+        showError('terms-error', 'Please accept the Terms & Conditions and Privacy Policy.');
+        isValid = false;
+      }
 
-    if (!isValid) {
-      hideLoadingOverlay();
-      return;
-    }
-
-    const formData = {name: fullname, email, content: message, captchaToken};
-
-    try {
-      const response = await fetch('https://contact.vgravity.com/send', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(formData)
-      });
-
-      if (response.ok) {
-        contactForm.reset();
-        hideContactForm();
-        showSuccessMessage();
+      if (!isValid) {
+        hideLoadingOverlay();
         return;
       }
 
-      showErrorMessage();
-    } catch (error) {
-      showErrorMessage();
-    } finally {
-      hideLoadingOverlay();
-    }
-  });
+      const formData = {name: fullname, email, content: message, captchaToken};
+
+      try {
+        const response = await fetch('https://contact.vgravity.com/send', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(formData)
+        });
+
+        if (response.ok) {
+          contactForm.reset();
+          hideContactForm();
+          showSuccessMessage();
+          return;
+        }
+
+        showErrorMessage();
+      } catch (error) {
+        showErrorMessage();
+      } finally {
+        hideLoadingOverlay();
+      }
+    });
+  }
 
   // Used from contact form
   function showSuccessMessage() {
