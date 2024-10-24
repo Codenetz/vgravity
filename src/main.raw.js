@@ -3,7 +3,6 @@ import './styles.raw.css';
 document.addEventListener('DOMContentLoaded', function () {
   'use strict';
 
-  const body = document.body;
   const dropdownButton = document.querySelector('.dropdown-button');
   const dropdownItems = document.querySelectorAll('.dropdown-item');
   const dropdown = document.querySelector('.services-mobile-dropdown');
@@ -62,6 +61,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Mobile navigation
   document.getElementById('mobile-menu').addEventListener('click', function () {
+    mobileNav.classList.toggle('active');
+    toggleBodyScroll();
+  });
+
+  document.getElementById('mobile-menu').addEventListener('touchend', function () {
     mobileNav.classList.toggle('active');
     toggleBodyScroll();
   });
@@ -257,7 +261,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Used from navigation
   function toggleBodyScroll() {
-    body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+    document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
   }
 
   // Used from service section
