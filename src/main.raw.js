@@ -1,270 +1,247 @@
 import './styles.raw.css';
 
 document.addEventListener('DOMContentLoaded', function () {
-  'use strict';
+  (function () {
+    'use strict';
 
-  const dropdownButton = document.querySelector('.dropdown-button');
-  const dropdownItems = document.querySelectorAll('.dropdown-item');
-  const dropdown = document.querySelector('.services-mobile-dropdown');
-  const tabs = document.querySelectorAll('.tab');
-  const serviceDescriptions = document.querySelectorAll('.service-description');
-  const contactSubmitButton = document.getElementById('contact-form-submit');
-  const captchaTokenInput = document.getElementById('captchaToken');
-  const currentYearElement = document.getElementById('current-year');
-  const contactForm = document.querySelector('.contact-form');
-  const fullnameInput = document.getElementById('fullname');
-  const emailInput = document.getElementById('email');
-  const messageInput = document.getElementById('message');
-  const termsCheckbox = document.getElementById('terms');
-  const loadingOverlay = document.getElementById('loading-overlay');
-  const successMessage = document.getElementById('success-message');
-  const errorMessageContainer = document.getElementById('error-message');
-  const mobileNav = document.querySelector('nav.mobile-nav');
-  const menuLinks = document.querySelectorAll('nav.mobile-nav ul a');
-  const contactFormErrorMessages = document.querySelectorAll('.error-message');
-  const contactFormError = document.querySelectorAll('.error');
-  const header = document.querySelector('header');
+    const elements = {
+      dropdownButton: document.querySelector('.dropdown-button'),
+      dropdownItems: document.querySelectorAll('.dropdown-item'),
+      dropdown: document.querySelector('.services-mobile-dropdown'),
+      tabs: document.querySelectorAll('.tab'),
+      serviceDescriptions: document.querySelectorAll('.service-description'),
+      contactSubmitButton: document.getElementById('contact-form-submit'),
+      captchaTokenInput: document.getElementById('captchaToken'),
+      currentYearElement: document.getElementById('current-year'),
+      contactForm: document.querySelector('.contact-form'),
+      fullnameInput: document.getElementById('fullname'),
+      emailInput: document.getElementById('email'),
+      messageInput: document.getElementById('message'),
+      termsCheckbox: document.getElementById('terms'),
+      loadingOverlay: document.getElementById('loading-overlay'),
+      successMessage: document.getElementById('success-message'),
+      errorMessageContainer: document.getElementById('error-message'),
+      mobileNav: document.querySelector('nav.mobile-nav'),
+      menuLinks: document.querySelectorAll('nav.mobile-nav ul a'),
+      contactFormErrorMessages: document.querySelectorAll('.error-message'),
+      contactFormError: document.querySelectorAll('.error'),
+      header: document.querySelector('header'),
+      mobileMenu: document.getElementById('mobile-menu'),
+      closeMenu: document.getElementById('close-menu')
+    };
 
-  if (currentYearElement) {
-    currentYearElement.textContent = new Date().getFullYear().toString();
-  }
-
-  let lastScrollPosition = 0;
-  const headerHeight = 96;
-
-  window.addEventListener('scroll', function () {
-    let currentScrollPosition = window.scrollY;
-
-    if (currentScrollPosition > lastScrollPosition && currentScrollPosition > headerHeight) {
-      header.classList.add('hide-header');
-    } else if (currentScrollPosition < lastScrollPosition) {
-      header.classList.remove('hide-header');
+    // Set current year
+    if (elements.currentYearElement) {
+      elements.currentYearElement.textContent = new Date().getFullYear().toString();
     }
 
-    lastScrollPosition = currentScrollPosition;
-  });
+    // Header scroll behavior
+    let lastScrollPosition = 0;
+    const headerHeight = 96;
 
-  // Captcha
-  if (contactSubmitButton) {
-    contactSubmitButton.disabled = true;
-  }
+    window.addEventListener('scroll', throttle(() => {
+      let currentScrollPosition = window.scrollY;
+      elements.header.classList.toggle('hide-header', currentScrollPosition > lastScrollPosition && currentScrollPosition > headerHeight);
+      lastScrollPosition = currentScrollPosition;
+    }, 100));
 
-  window.CFTurnstilCallback = function (token) {
-    if (contactSubmitButton) contactSubmitButton.disabled = false;
-    if (captchaTokenInput) captchaTokenInput.value = token;
-  };
+    // Captcha related logic
+    if (elements.contactSubmitButton) {
+      elements.contactSubmitButton.disabled = true;
+    }
 
-  window.CFTurnstilReset = function () {
-    if (contactSubmitButton) contactSubmitButton.disabled = true;
-    if (captchaTokenInput) captchaTokenInput.value = '';
-  };
+    if (elements.contactSubmitButton && elements.captchaTokenInput) {
+      window.CFTurnstilCallback = function (token) {
+        elements.contactSubmitButton.disabled = false;
+        elements.captchaTokenInput.value = token;
+      };
 
-  // Mobile navigation
-  document.getElementById('mobile-menu').addEventListener('click', function () {
-    mobileNav.classList.toggle('active');
-    toggleBodyScroll();
-  });
+      window.CFTurnstilReset = function () {
+        elements.contactSubmitButton.disabled = true;
+        elements.captchaTokenInput.value = '';
+      };
+    }
 
-  document.getElementById('close-menu').addEventListener('click', function () {
-    mobileNav.classList.toggle('active');
-    toggleBodyScroll();
-  });
+    // Mobile navigation
+    if (elements.mobileMenu) {
+      elements.mobileMenu.addEventListener('click', toggleMobileNav);
+    }
 
-  menuLinks.forEach(link => {
-    link.addEventListener('click', function () {
-      mobileNav.classList.toggle('active');
+    if (elements.closeMenu) {
+      elements.closeMenu.addEventListener('click', toggleMobileNav);
+    }
+
+    if (elements.menuLinks) {
+      elements.menuLinks.forEach(link => {
+        link.addEventListener('click', toggleMobileNav);
+      });
+    }
+
+    function toggleMobileNav() {
+      elements.mobileNav.classList.toggle('active');
       toggleBodyScroll();
-    });
-  });
+    }
 
-  // Service dropdown
-  if (dropdownButton && dropdown) {
-    dropdownButton.addEventListener('click', () => {
-      dropdown.classList.toggle('active');
-    });
-  }
+    // Dropdown behavior
+    if (elements.dropdownButton && elements.dropdown) {
+      elements.dropdownButton.addEventListener('click', () => {
+        elements.dropdown.classList.toggle('active');
+      });
+    }
 
-  dropdownItems.forEach(item => {
-    item.addEventListener('click', event => {
-      const selectedValue = event.target.getAttribute('data-key');
-      updateDisplayedContent(selectedValue);
-      if (dropdown) dropdown.classList.remove('active');
-      if (dropdownButton) dropdownButton.textContent = event.target.textContent;
-    });
-  });
+    if (elements.dropdownItems) {
+      elements.dropdownItems.forEach(item => {
+        item.addEventListener('click', event => {
+          const selectedValue = event.target.getAttribute('data-key');
+          updateDisplayedContent(selectedValue);
+          elements.dropdown.classList.remove('active');
+          elements.dropdownButton.textContent = event.target.textContent;
+        });
+      });
+    }
 
-  if (dropdown) {
-    dropdown.addEventListener('change', event => {
-      const selectedValue = event.target.value;
-      updateDisplayedContent(selectedValue);
-    });
-
-    document.addEventListener('click', e => {
-      if (!dropdown.contains(e.target)) {
-        dropdown.classList.remove('active');
+    document.addEventListener('click', (e) => {
+      if (elements.dropdown && !elements.dropdown.contains(e.target)) {
+        elements.dropdown.classList.remove('active');
       }
     });
-  }
 
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      const selectedValue = tab.getAttribute('data-key');
-      updateDisplayedContent(selectedValue);
-    });
-  });
+    // Tabs behavior
+    if (elements.tabs) {
+      elements.tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          elements.tabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          const selectedValue = tab.getAttribute('data-key');
+          updateDisplayedContent(selectedValue);
+        });
+      });
+    }
 
-  // Contact form
-  if (contactForm) {
-    contactForm.addEventListener('submit', async event => {
-      event.preventDefault();
-      clearErrors();
-      hideErrorMessage();
-      showLoadingOverlay();
+    // Contact form submission
+    if (elements.contactForm) {
+      elements.contactForm.addEventListener('submit', async event => {
+        event.preventDefault();
+        clearErrors();
+        hideElement(elements.errorMessageContainer);
+        showElement(elements.loadingOverlay);
 
-      const fullname = fullnameInput ? fullnameInput.value.trim() : '';
-      const email = emailInput ? emailInput.value.trim() : '';
-      const message = messageInput ? messageInput.value.trim() : '';
-      const captchaToken = captchaTokenInput ? captchaTokenInput.value.trim() : '';
-      const termsAccepted = termsCheckbox ? termsCheckbox.checked : false;
+        const formData = {
+          name: elements.fullnameInput?.value.trim(),
+          email: elements.emailInput?.value.trim(),
+          content: elements.messageInput?.value.trim(),
+          captchaToken: elements.captchaTokenInput?.value.trim(),
+        };
 
+        if (!validateForm(formData)) {
+          hideElement(elements.loadingOverlay);
+          return;
+        }
+
+        try {
+          const response = await sendFormData(formData);
+          if (response.ok) {
+            elements.contactForm.reset();
+            hideElement(elements.contactForm);
+            showElement(elements.successMessage);
+          } else {
+            showElement(elements.errorMessageContainer);
+          }
+        } catch {
+          showElement(elements.errorMessageContainer);
+        } finally {
+          hideElement(elements.loadingOverlay);
+        }
+      });
+    }
+
+    // Helper functions
+    function toggleBodyScroll() {
+      document.body.style.overflow = elements.mobileNav.classList.contains('active') ? 'hidden' : '';
+    }
+
+    function updateDisplayedContent(selectedValue) {
+      elements.serviceDescriptions.forEach(description => {
+        description.style.display = description.getAttribute('data-key') === selectedValue ? 'block' : 'none';
+      });
+    }
+
+    function validateForm(formData) {
       let isValid = true;
 
-      if (!fullname) {
+      if (!formData.name) {
         showError('fullname-error', 'Please enter your full name.');
         isValid = false;
       }
 
-      if (!validateEmail(email)) {
+      if (!validateEmail(formData.email)) {
         showError('email-error', 'Please enter a valid email address.');
         isValid = false;
       }
 
-      if (!message) {
+      if (!formData.content) {
         showError('message-error', 'Please enter a message.');
         isValid = false;
       }
 
-      if (!captchaToken) {
+      if (!formData.captchaToken) {
         showError('captcha-error', 'Captcha error.');
         isValid = false;
       }
 
-      if (!termsAccepted) {
+      if (!elements.termsCheckbox.checked) {
         showError('terms-error', 'Please accept the Terms & Conditions and Privacy Policy.');
         isValid = false;
       }
 
-      if (!isValid) {
-        hideLoadingOverlay();
-        return;
+      return isValid;
+    }
+
+    async function sendFormData(formData) {
+      return await fetch('https://contact.vgravity.com/send', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(formData),
+      });
+    }
+
+    function showError(elementId, message) {
+      const errorElement = document.getElementById(elementId);
+      if (errorElement) {
+        errorElement.textContent = message;
+        showElement(errorElement);
+        errorElement.previousElementSibling?.classList.add('error');
       }
+    }
 
-      const formData = {name: fullname, email, content: message, captchaToken};
+    function clearErrors() {
+      elements.contactFormErrorMessages.forEach(hideElement);
+      elements.contactFormError.forEach(element => element.classList.remove('error'));
+    }
 
-      try {
-        const response = await fetch('https://contact.vgravity.com/send', {
-          method: 'POST',
-          headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify(formData)
-        });
+    function validateEmail(email) {
+      const re = /^\S+@\S+\.\S+$/;
+      return re.test(email);
+    }
 
-        if (response.ok) {
-          contactForm.reset();
-          hideContactForm();
-          showSuccessMessage();
-          return;
+    function showElement(element) {
+      element && (element.style.display = 'block');
+    }
+
+    function hideElement(element) {
+      element && (element.style.display = 'none');
+    }
+
+    // Throttle function to optimize scroll performance
+    function throttle(fn, limit) {
+      let lastCall = 0;
+      return function (...args) {
+        const now = Date.now();
+        if (now - lastCall >= limit) {
+          lastCall = now;
+          fn(...args);
         }
-
-        showErrorMessage();
-      } catch (error) {
-        showErrorMessage();
-      } finally {
-        hideLoadingOverlay();
-      }
-    });
-  }
-
-  // Used from contact form
-  function showSuccessMessage() {
-    if (successMessage) {
-      successMessage.style.display = 'block';
+      };
     }
-  }
-
-  // Used from contact form
-  function hideContactForm() {
-    if (contactForm) {
-      contactForm.style.display = 'none';
-    }
-  }
-
-  // Used from contact form
-  function showLoadingOverlay() {
-    if (loadingOverlay) {
-      loadingOverlay.style.display = 'flex';
-    }
-  }
-
-  // Used from contact form
-  function hideLoadingOverlay() {
-    if (loadingOverlay) {
-      loadingOverlay.style.display = 'none';
-    }
-  }
-
-  // Used from contact form
-  function showErrorMessage() {
-    if (errorMessageContainer) {
-      errorMessageContainer.style.display = 'block';
-    }
-  }
-
-  // Used from contact form
-  function hideErrorMessage() {
-    if (errorMessageContainer) {
-      errorMessageContainer.style.display = 'none';
-    }
-  }
-
-  // Used from contact form
-  function showError(elementId, message) {
-    const errorElement = document.getElementById(elementId);
-    if (errorElement) {
-      errorElement.textContent = message;
-      errorElement.style.display = 'block';
-      const inputElement = errorElement.previousElementSibling;
-      if (inputElement) inputElement.classList.add('error');
-    }
-  }
-
-  // Used from contact form
-  function clearErrors() {
-    contactFormErrorMessages.forEach(element => {
-      element.style.display = 'none';
-    });
-
-    contactFormError.forEach(element => {
-      element.classList.remove('error');
-    });
-  }
-
-  // Used from contact form
-  function validateEmail(email) {
-    const re = /^\S+@\S+\.\S+$/;
-    return re.test(email);
-  }
-
-  // Used from navigation
-  function toggleBodyScroll() {
-    document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
-  }
-
-  // Used from service section
-  function updateDisplayedContent(selectedValue) {
-    serviceDescriptions.forEach(description => {
-      description.style.display = description.getAttribute('data-key') === selectedValue ? 'block' : 'none';
-    });
-  }
+  })();
 });
