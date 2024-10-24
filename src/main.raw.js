@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function () {
         event.preventDefault();
         clearErrors();
         hideElement(elements.errorMessageContainer);
-        showElement(elements.loadingOverlay);
+        showElement(elements.loadingOverlay, 'flex');
 
         const formData = {
           name: elements.fullnameInput?.value.trim(),
@@ -224,8 +224,8 @@ document.addEventListener('DOMContentLoaded', function () {
       return re.test(email);
     }
 
-    function showElement(element) {
-      element && (element.style.display = 'block');
+    function showElement(element, display = 'block') {
+      element && (element.style.display = display);
     }
 
     function hideElement(element) {

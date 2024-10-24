@@ -571,12 +571,6 @@ textarea::placeholder {
     text-decoration: underline;
 }
 
-/* reCAPTCHA Placeholder */
-.recaptcha-container {
-    display: flex;
-    justify-content: left;
-}
-
 /* Submit Button */
 .submit-button {
     background-color: #3A1660;
@@ -790,10 +784,10 @@ input.error, textarea.error {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    display: none; /* Hidden by default */
+    display: none;
     justify-content: center;
     align-items: center;
-    z-index: 10; /* Higher than form elements */
+    z-index: 99999999;
 }
 
 /* Spinner style */
@@ -815,57 +809,40 @@ input.error, textarea.error {
     }
 }
 
-/* Success message styling */
 .success-message {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    background-color: #e0f7e0;
-    border: 1px solid #a0dca0;
-    border-radius: 8px;
-    color: #2c662c;
-    font-size: 1.2em;
+    font-size: 15px;
     text-align: center;
     margin-top: 20px;
-}
-
-.success-message i {
-    font-size: 3em;
-    margin-bottom: 10px;
-    color: #4caf50;
+    color: #3A1660;
+    display: none;
 }
 
 .error-message-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    background-color: #f8d7da;
-    border: 1px solid #f5c6cb;
-    border-radius: 8px;
-    color: #721c24;
-    font-size: 1.2em;
+    font-size: 15px;
     text-align: center;
     margin-top: 20px;
-}
-
-.error-message-container i {
-    font-size: 3em;
-    margin-bottom: 10px;
-    color: #dc3545; /* Red color for the error icon */
+    background-color: #f5c6cb;
+    border-radius: 18px;
+    padding: 35px 0;
+    display: none;
 }
 
 .error-message-container h2 {
-    font-size: 2em;
-    margin-bottom: 10px;
+    color: rgba(255, 0, 0, 1);
 }
 
-.error-message-container a {
-    color: #dc3545;
-    text-decoration: none;
+.success-message-content, .error-message-content {
+    width: 500px;
+    margin: 0 auto;
+}
+
+.success-message img, .error-message-container img{
+    width: 35px;
+}
+
+.success-message p, .error-message-container p {
+    margin-bottom: 18px;
+    color: #3A1660;
 }
 
 .privacy-policy-container {
@@ -1200,7 +1177,7 @@ input.error, textarea.error {
 
     .inner-page-card {
         flex: 1 1 calc(50% - 40px) !important;
-        max-width: calc(50% - 40px) !important;
+        max-width: calc(53% - 40px) !important;
         padding: 0 0 30px 0 !important;
     }
 
@@ -1227,37 +1204,6 @@ input.error, textarea.error {
 }
 
 @media (max-width: 1024px) {
-
-    header {
-        padding: 30px 30px !important;
-    }
-
-    nav ul {
-        gap: 15px;
-    }
-
-    .hero-content {
-        padding: 0 30px;
-        margin-top: 0;
-    }
-
-    .content-box {
-        max-width: 100%;
-        text-align: center;
-    }
-
-    .content-box h1 {
-        width: 100%;
-        font-size: 27px;
-    }
-
-    .content-box h2 {
-        font-size: 22px;
-    }
-
-    .content-box p {
-        font-size: 16px;
-    }
 
     .cta-button {
         padding: 10px 20px;
@@ -1457,7 +1403,41 @@ input.error, textarea.error {
     }
 }
 
+@media (max-width: 950px) {
+    header {
+        padding: 30px 30px !important;
+    }
+
+    nav ul {
+        gap: 15px;
+    }
+
+    .hero-content {
+        padding: 0 30px;
+        margin-top: 0;
+    }
+
+    .content-box {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .content-box h1 {
+        width: 100%;
+        font-size: 27px;
+    }
+
+    .content-box h2 {
+        font-size: 22px;
+    }
+
+    .content-box p {
+        font-size: 16px;
+    }
+}
+
 @media (max-width: 768px) {
+
     .footer-container {
         flex-direction: column;
         align-items: center;
@@ -1508,7 +1488,7 @@ input.error, textarea.error {
     .cta-button {
         padding: 8px 16px;
         font-size: 12px;
-        width: 120px;
+        width: 130px;
         text-align: center;
     }
 
@@ -1523,5 +1503,16 @@ input.error, textarea.error {
 
     .skills-container {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 350px) {
+    .logo img {
+        width: 145px;
+    }
+
+    .cta-button {
+        font-size: 10px;
+        width: 140px;
     }
 }
