@@ -1,9 +1,9 @@
 import './styles.raw.css';
 
-(function () {
+document.addEventListener('DOMContentLoaded', function () {
   'use strict';
 
-  // DOM Elements
+  const body = document.body;
   const dropdownButton = document.querySelector('.dropdown-button');
   const dropdownItems = document.querySelectorAll('.dropdown-item');
   const dropdown = document.querySelector('.services-mobile-dropdown');
@@ -21,19 +21,37 @@ import './styles.raw.css';
   const loadingOverlay = document.getElementById('loading-overlay');
   const successMessage = document.getElementById('success-message');
   const errorMessageContainer = document.getElementById('error-message');
+  const mobileNav = document.querySelector('nav.mobile-nav');
+  const menuLinks = document.querySelectorAll('nav.mobile-nav ul a');
+  const contactFormErrorMessages = document.querySelectorAll('.error-message');
+  const contactFormError = document.querySelectorAll('.error');
+  const header = document.querySelector('header');
 
-  // Initialize
   if (currentYearElement) {
-    currentYearElement.textContent = new Date().getFullYear();
+    currentYearElement.textContent = new Date().getFullYear().toString();
   }
 
+  let lastScrollPosition = 0;
+  const headerHeight = 96;
+
+  window.addEventListener('scroll', function () {
+    let currentScrollPosition = window.scrollY;
+
+    if (currentScrollPosition > lastScrollPosition && currentScrollPosition > headerHeight) {
+      header.classList.add('hide-header');
+    } else if (currentScrollPosition < lastScrollPosition) {
+      header.classList.remove('hide-header');
+    }
+
+    lastScrollPosition = currentScrollPosition;
+  });
+
+  // Captcha
   if (contactSubmitButton) {
     contactSubmitButton.disabled = true;
   }
 
-  // Captcha Callback Functions
   window.CFTurnstilCallback = function (token) {
-    console.log('Captcha token received:', token);
     if (contactSubmitButton) contactSubmitButton.disabled = false;
     if (captchaTokenInput) captchaTokenInput.value = token;
   };
@@ -43,77 +61,25 @@ import './styles.raw.css';
     if (captchaTokenInput) captchaTokenInput.value = '';
   };
 
-  function showSuccessMessage() {
-    if (successMessage) {
-      successMessage.style.display = 'block';
-    }
-  }
+  // Mobile navigation
+  document.getElementById('mobile-menu').addEventListener('click', function () {
+    mobileNav.classList.toggle('active');
+    toggleBodyScroll();
+  });
 
-  function hideContactForm() {
-    if (contactForm) {
-      contactForm.style.display = 'none';
-    }
-  }
+  document.getElementById('close-menu').addEventListener('click', function () {
+    mobileNav.classList.toggle('active');
+    toggleBodyScroll();
+  });
 
-  function showLoadingOverlay() {
-    if (loadingOverlay) {
-      loadingOverlay.style.display = 'flex';
-    }
-  }
-
-  function hideLoadingOverlay() {
-    if (loadingOverlay) {
-      loadingOverlay.style.display = 'none';
-    }
-  }
-
-  function showErrorMessage() {
-    if (errorMessageContainer) {
-      errorMessageContainer.style.display = 'block';
-    }
-  }
-
-  function hideErrorMessage() {
-    if (errorMessageContainer) {
-      errorMessageContainer.style.display = 'none';
-    }
-  }
-
-  // Helper Functions
-  function updateDisplayedContent(selectedValue) {
-    cards.forEach(card => {
-      card.style.display = card.getAttribute('data-key') === selectedValue ? 'flex' : 'none';
+  menuLinks.forEach(link => {
+    link.addEventListener('click', function () {
+      mobileNav.classList.toggle('active');
+      toggleBodyScroll();
     });
-    serviceDescriptions.forEach(description => {
-      description.style.display = description.getAttribute('data-key') === selectedValue ? 'flex' : 'none';
-    });
-  }
+  });
 
-  function showError(elementId, message) {
-    const errorElement = document.getElementById(elementId);
-    if (errorElement) {
-      errorElement.textContent = message;
-      errorElement.style.display = 'block';
-      const inputElement = errorElement.previousElementSibling;
-      if (inputElement) inputElement.classList.add('error');
-    }
-  }
-
-  function clearErrors() {
-    document.querySelectorAll('.error-message').forEach(element => {
-      element.style.display = 'none';
-    });
-    document.querySelectorAll('.error').forEach(element => {
-      element.classList.remove('error');
-    });
-  }
-
-  function validateEmail(email) {
-    const re = /^\S+@\S+\.\S+$/;
-    return re.test(email);
-  }
-
-  // Event Listeners
+  // Service dropdown
   if (dropdownButton && dropdown) {
     dropdownButton.addEventListener('click', () => {
       dropdown.classList.toggle('active');
@@ -151,73 +117,158 @@ import './styles.raw.css';
     });
   });
 
-  if (contactForm) {
-    contactForm.addEventListener('submit', async event => {
-      event.preventDefault();
-      clearErrors();
-      hideErrorMessage();
-      showLoadingOverlay();
+  // Contact form
+  contactForm.addEventListener('submit', async event => {
+    event.preventDefault();
+    clearErrors();
+    hideErrorMessage();
+    showLoadingOverlay();
 
-      const fullname = fullnameInput ? fullnameInput.value.trim() : '';
-      const email = emailInput ? emailInput.value.trim() : '';
-      const message = messageInput ? messageInput.value.trim() : '';
-      const captchaToken = captchaTokenInput ? captchaTokenInput.value.trim() : '';
-      const termsAccepted = termsCheckbox ? termsCheckbox.checked : false;
+    const fullname = fullnameInput ? fullnameInput.value.trim() : '';
+    const email = emailInput ? emailInput.value.trim() : '';
+    const message = messageInput ? messageInput.value.trim() : '';
+    const captchaToken = captchaTokenInput ? captchaTokenInput.value.trim() : '';
+    const termsAccepted = termsCheckbox ? termsCheckbox.checked : false;
 
-      let isValid = true;
+    let isValid = true;
 
-      if (!fullname) {
-        showError('fullname-error', 'Please enter your full name.');
-        isValid = false;
-      }
+    if (!fullname) {
+      showError('fullname-error', 'Please enter your full name.');
+      isValid = false;
+    }
 
-      if (!validateEmail(email)) {
-        showError('email-error', 'Please enter a valid email address.');
-        isValid = false;
-      }
+    if (!validateEmail(email)) {
+      showError('email-error', 'Please enter a valid email address.');
+      isValid = false;
+    }
 
-      if (!message) {
-        showError('message-error', 'Please enter a message.');
-        isValid = false;
-      }
+    if (!message) {
+      showError('message-error', 'Please enter a message.');
+      isValid = false;
+    }
 
-      if (!captchaToken) {
-        showError('captcha-error', 'Captcha error.');
-        isValid = false;
-      }
+    if (!captchaToken) {
+      showError('captcha-error', 'Captcha error.');
+      isValid = false;
+    }
 
-      if (!termsAccepted) {
-        showError('terms-error', 'Please accept the Terms & Conditions and Privacy Policy.');
-        isValid = false;
-      }
+    if (!termsAccepted) {
+      showError('terms-error', 'Please accept the Terms & Conditions and Privacy Policy.');
+      isValid = false;
+    }
 
-      if (!isValid) {
-        hideLoadingOverlay();
+    if (!isValid) {
+      hideLoadingOverlay();
+      return;
+    }
+
+    const formData = {name: fullname, email, content: message, captchaToken};
+
+    try {
+      const response = await fetch('https://contact.vgravity.com/send', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        contactForm.reset();
+        hideContactForm();
+        showSuccessMessage();
         return;
       }
 
-      const formData = {name: fullname, email, content: message, captchaToken};
+      showErrorMessage();
+    } catch (error) {
+      showErrorMessage();
+    } finally {
+      hideLoadingOverlay();
+    }
+  });
 
-      try {
-        const response = await fetch('https://contact.vgravity.com/send', {
-          method: 'POST',
-          headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify(formData)
-        });
+  // Used from contact form
+  function showSuccessMessage() {
+    if (successMessage) {
+      successMessage.style.display = 'block';
+    }
+  }
 
-        if (response.ok) {
-          contactForm.reset();
-          hideContactForm();
-          showSuccessMessage();
-        } else {
-          showErrorMessage();
-        }
-      } catch (error) {
-        showErrorMessage();
-      } finally {
-        // Hide loading overlay once the form submission is done (success or error)
-        hideLoadingOverlay();
-      }
+  // Used from contact form
+  function hideContactForm() {
+    if (contactForm) {
+      contactForm.style.display = 'none';
+    }
+  }
+
+  // Used from contact form
+  function showLoadingOverlay() {
+    if (loadingOverlay) {
+      loadingOverlay.style.display = 'flex';
+    }
+  }
+
+  // Used from contact form
+  function hideLoadingOverlay() {
+    if (loadingOverlay) {
+      loadingOverlay.style.display = 'none';
+    }
+  }
+
+  // Used from contact form
+  function showErrorMessage() {
+    if (errorMessageContainer) {
+      errorMessageContainer.style.display = 'block';
+    }
+  }
+
+  // Used from contact form
+  function hideErrorMessage() {
+    if (errorMessageContainer) {
+      errorMessageContainer.style.display = 'none';
+    }
+  }
+
+  // Used from contact form
+  function showError(elementId, message) {
+    const errorElement = document.getElementById(elementId);
+    if (errorElement) {
+      errorElement.textContent = message;
+      errorElement.style.display = 'block';
+      const inputElement = errorElement.previousElementSibling;
+      if (inputElement) inputElement.classList.add('error');
+    }
+  }
+
+  // Used from contact form
+  function clearErrors() {
+    contactFormErrorMessages.forEach(element => {
+      element.style.display = 'none';
+    });
+
+    contactFormError.forEach(element => {
+      element.classList.remove('error');
     });
   }
-})();
+
+  // Used from contact form
+  function validateEmail(email) {
+    const re = /^\S+@\S+\.\S+$/;
+    return re.test(email);
+  }
+
+  // Used from navigation
+  function toggleBodyScroll() {
+    body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+  }
+
+  // Used from service section
+  function updateDisplayedContent(selectedValue) {
+    cards.forEach(card => {
+      card.style.display = card.getAttribute('data-key') === selectedValue ? 'flex' : 'none';
+    });
+
+    serviceDescriptions.forEach(description => {
+      description.style.display = description.getAttribute('data-key') === selectedValue ? 'flex' : 'none';
+    });
+  }
+});
