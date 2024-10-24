@@ -21,6 +21,7 @@
     <meta name="twitter:description"
           content="Discover VGravity's cutting-edge backend architecture, API development, DevOps automation, and blockchain services. We ensure secure, scalable, and high-performance solutions for your business. Get in touch today!">
     <meta name="twitter:image" content="https://vgravity.com/assets/images/vgravity-logo-04.png">
+    <link rel="preload" href="dist/main.min.css" as="style" onload="this.rel='stylesheet'"/>
     <link rel="stylesheet" href="dist/main.min.css">
     <script src="dist/main.min.js" async></script>
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
@@ -147,15 +148,17 @@
     </video>
     <div class="hero-content">
         <div class="content-box">
-            <h2>The Gravity of Backend Innovation and Excellence!</h2>
-            <h1><span class="thin-v">V</span>GRAVITY</h1>
+            <h1>The Gravity of Backend Innovation and Excellence!</h1>
             <p>
                 We specialize in creating robust backend architecture and development, providing
                 cloud infrastructure solutions, DevOps services, and thorough testing.
                 Our backend solutions provide a strong application foundation, ensuring scalability,
                 security, and high performance.
             </p>
-            <a href="#contact" class="cta-button">Contact Us</a>
+            <div class="cta-buttons">
+                <a href="#contact" class="cta-button">Contact Us</a>
+                <a href="#services" class="cta-button no-bg">Services</a>
+            </div>
         </div>
     </div>
 </section>
@@ -188,147 +191,166 @@
         <div class="service-cards">
 
             <!-- Backend architecture -->
-            <div class="inner-page-content row_3 service-description"
-                 data-key="backend-architecture"
-                 style="display: none;">
-                <div class="inner-page-card">
-                    <div class="icon">
-                        <img src="assets/images/icon_cog.png" alt="Gear Icon">
+            <div class="service-description" data-key="backend-architecture" style="display: none;">
+                <div class="inner-page-content row_3">
+                    <div class="inner-page-card">
+                        <div class="icon">
+                            <img src="assets/icons_40px/backend_architecture/backend_architecture.png"
+                                 alt="Gear Icon">
+                        </div>
+                        <h3>Software Blueprint</h3>
+                        <p>We create a blueprint for your application's backend architecture,
+                            defining
+                            component
+                            structure, interactions, and data flow. We assess requirements, select
+                            technologies,
+                            and ensure seamless integration between modules.
+                        </p>
                     </div>
-                    <h3>Software Blueprint</h3>
-                    <p>We create a blueprint for your application's backend architecture, defining
-                        component
-                        structure, interactions, and data flow. We assess requirements, select
-                        technologies,
-                        and ensure seamless integration between modules.
-                    </p>
-                    <a href="backend-architecture.html" class="service-redirect-button">Backend
-                        Architecture <img src="assets/arrow.png" alt="Arrow"/></a>
+                    <div class="inner-page-card">
+                        <div class="icon">
+                            <img src="assets/icons_40px/backend_architecture/backend_architecture.png"
+                                 alt="Gear Icon">
+                        </div>
+                        <h3>Design Database Schema</h3>
+                        <p>We provide a structured approach to selecting the right database system
+                            (SQL,
+                            NoSQL),
+                            designing schemas, defining tables and relationships, and setting up the
+                            database
+                            with initial data for testing and development.
+                        </p>
+                    </div>
+                    <div class="inner-page-card">
+                        <div class="icon">
+                            <img src="assets/icons_40px/backend_architecture/backend_architecture.png"
+                                 alt="Gear Icon">
+                        </div>
+                        <h3>Infrastructure</h3>
+                        <p>Our service provides modern software architecture solutions, including
+                            Monolithic, Microservices, and Serverless Infrastructure, to meet
+                            your scalability, flexibility, and efficiency needs.
+                        </p>
+                    </div>
                 </div>
-                <div class="inner-page-card">
-                    <div class="icon">
-                        <img src="assets/images/icon_cog.png" alt="Gear Icon">
+                <div class="inner-page-content row_1">
+                    <div class="inner-page-card">
+                        <a href="backend-architecture.html" class="service-redirect-button">Backend
+                            Architecture <img src="assets/arrow.png" alt="Arrow"/></a>
                     </div>
-                    <h3>Design Database Schema</h3>
-                    <p>We provide a structured approach to selecting the right database system (SQL,
-                        NoSQL),
-                        designing schemas, defining tables and relationships, and setting up the
-                        database
-                        with initial data for testing and development.
-                    </p>
-                    <a href="backend-architecture.html" class="service-redirect-button">Backend
-                        Architecture <img src="assets/arrow.png" alt="Arrow"/></a>
-                </div>
-                <div class="inner-page-card">
-                    <div class="icon">
-                        <img src="assets/images/icon_cog.png" alt="Gear Icon">
-                    </div>
-                    <h3>Infrastructure</h3>
-                    <p>Our service provides modern software architecture solutions, including
-                        Monolithic, Microservices, and Serverless Infrastructure, to meet
-                        your scalability, flexibility, and efficiency needs.
-                    </p>
-                    <a href="backend-architecture.html" class="service-redirect-button">Backend
-                        Architecture <img src="assets/arrow.png" alt="Arrow"/></a>
                 </div>
             </div>
-
             <!-- Backend development -->
-            <div class="inner-page-content row_3 service-description" data-key="api-development">
-                <div class="inner-page-card">
-                    <div class="icon">
-                        <img src="assets/images/icon_cog.png" alt="Gear Icon">
+            <div class="service-description" data-key="api-development">
+                <div class="inner-page-content row_3">
+                    <div class="inner-page-card">
+                        <div class="icon">
+                            <img src="assets/icons_40px/backend_development/clean_code.png"
+                                 alt="Code Icon">
+                        </div>
+                        <h3>Secure And Scalable API Development</h3>
+                        <p>Developing your back-end's core business logic and functionality.
+                            We build REST, RPC, or GraphQL APIs with full documentation, ensuring
+                            robust and maintainable solutions.
+                        </p>
                     </div>
-                    <h3>Secure And Scalable API Development</h3>
-                    <p>Developing your back-end's core business logic and functionality.
-                        We build REST, RPC, or GraphQL APIs with full documentation, ensuring
-                        robust and maintainable solutions.
-                    </p>
-                    <a href="backend-development.html" class="service-redirect-button">Backend
-                        Development <img src="assets/arrow.png" alt="Arrow"/></a>
+                    <div class="inner-page-card">
+                        <div class="icon">
+                            <img src="assets/icons_40px/backend_development/clean_code.png"
+                                 alt="Code Icon">
+                        </div>
+                        <h3>Real-Time Communication Solutions</h3>
+                        <p>Building applications with real-time communication using Socket.IO,
+                            enabling seamless, real-time interactions within your applications.</p>
+                    </div>
+                    <div class="inner-page-card">
+                        <div class="icon">
+                            <img src="assets/icons_40px/backend_development/clean_code.png"
+                                 alt="Code Icon">
+                        </div>
+                        <h3>3rd Party Service Integrations</h3>
+                        <p>Seamlessly integrate third-party services from Stripe, Facebook, Google,
+                            AWS,
+                            PayPal,
+                            Slack, Mailchimp, and more to enhance functionality and user
+                            experience.</p>
+                    </div>
                 </div>
-                <div class="inner-page-card">
-                    <div class="icon">
-                        <img src="assets/images/icon_cog.png" alt="Gear Icon">
+                <div class="inner-page-content row_1">
+                    <div class="inner-page-card">
+                        <a href="backend-development.html" class="service-redirect-button">Backend
+                            Development <img src="assets/arrow.png" alt="Arrow"/></a>
                     </div>
-                    <h3>Real-Time Communication Solutions</h3>
-                    <p>Building applications with real-time communication using Socket.IO,
-                        enabling seamless, real-time interactions within your applications.</p>
-                    <a href="backend-development.html" class="service-redirect-button">Backend
-                        Development <img src="assets/arrow.png" alt="Arrow"/></a>
-                </div>
-                <div class="inner-page-card">
-                    <div class="icon">
-                        <img src="assets/images/icon_cog.png" alt="Gear Icon">
-                    </div>
-                    <h3>3rd Party Service Integrations</h3>
-                    <p>Seamlessly integrate third-party services from Stripe, Facebook, Google, AWS,
-                        PayPal,
-                        Slack, Mailchimp, and more to enhance functionality and user experience.</p>
-                    <a href="backend-development.html" class="service-redirect-button">Backend
-                        Development <img src="assets/arrow.png" alt="Arrow"/></a>
                 </div>
             </div>
 
             <!-- DevOps-->
-            <div class="inner-page-content row_3 service-description" data-key="devops"
-                 style="display: none;">
-                <div class="inner-page-card">
-                    <div class="icon">
-                        <img src="assets/images/icon_cog.png" alt="Gear Icon">
+            <div class="service-description" data-key="devops" style="display: none;">
+                <div class="inner-page-content row_3">
+                    <div class="inner-page-card">
+                        <div class="icon">
+                            <img src="assets/icons_40px/devops/devops.png" alt="DevOps Icon">
+                        </div>
+                        <h3>Development Automation</h3>
+                        <p>Automate code integration, testing, and delivery with CI/CD, while
+                            managing
+                            infrastructure using IaC for faster, reliable releases and consistent,
+                            scalable
+                            environments.
+                        </p>
                     </div>
-                    <h3>Development Automation</h3>
-                    <p>Automate code integration, testing, and delivery with CI/CD, while managing
-                        infrastructure using IaC for faster, reliable releases and consistent,
-                        scalable
-                        environments.
-                    </p>
-                    <a href="devops.html" class="service-redirect-button">DevOps <img
-                            src="assets/arrow.png" alt="Arrow"/></a>
+                    <div class="inner-page-card">
+                        <div class="icon">
+                            <img src="assets/icons_40px/devops/devops.png" alt="DevOps Icon">
+                        </div>
+                        <h3>Process Automations</h3>
+                        <p>Streamlining business processes through custom automation solutions.
+                            Reducing manual effort and increasing operational efficiency.
+                        </p>
+                    </div>
+                    <div class="inner-page-card">
+                        <div class="icon">
+                            <img src="assets/icons_40px/devops/devops.png" alt="DevOps Icon">
+                        </div>
+                        <h3>Enhance Security</h3>
+                        <p>Integrating security practices into the development pipeline ensures that
+                            security is
+                            seamlessly built into the software from the very beginning, rather than
+                            being an
+                            afterthought.
+                        </p>
+                    </div>
                 </div>
-                <div class="inner-page-card">
-                    <div class="icon">
-                        <img src="assets/images/icon_cog.png" alt="Gear Icon">
+                <div class="inner-page-content row_1">
+                    <div class="inner-page-card">
+                        <a href="devops.html" class="service-redirect-button">DevOps <img
+                                src="assets/arrow.png" alt="Arrow"/></a>
                     </div>
-                    <h3>Process Automations</h3>
-                    <p>Streamlining business processes through custom automation solutions.
-                        Reducing manual effort and increasing operational efficiency.
-                    </p>
-                    <a href="devops.html" class="service-redirect-button">DevOps <img
-                            src="assets/arrow.png" alt="Arrow"/></a>
-                </div>
-                <div class="inner-page-card">
-                    <div class="icon">
-                        <img src="assets/images/icon_cog.png" alt="Gear Icon">
-                    </div>
-                    <h3>Enhance Security</h3>
-                    <p>Integrating security practices into the development pipeline ensures that
-                        security is
-                        seamlessly built into the software from the very beginning, rather than
-                        being an
-                        afterthought.
-                    </p>
-                    <a href="devops.html" class="service-redirect-button">DevOps <img
-                            src="assets/arrow.png" alt="Arrow"/></a>
                 </div>
             </div>
 
             <!-- Solana -->
-            <div class="inner-page-content row_1 service-description" data-key="blockchain"
-                 style="display: none;">
-                <div class="inner-page-card">
-                    <div class="icon">
-                        <img src="assets/images/icon_cog.png" alt="Gear Icon">
+            <div class="service-description" data-key="blockchain" style="display: none;">
+                <div class="inner-page-content row_1">
+                    <div class="inner-page-card service-card-blockchain">
+                        <div class="icon">
+                            <img src="assets/icons_40px/blockchain/solana.png"
+                                 alt="Blockchain Icon">
+                        </div>
+                        <h3>Solana</h3>
+                        <p>
+                            Integrating with leading DEXs for automated trading strategies and
+                            developing
+                            dApps on Solana, ensuring fast, efficient, and secure blockchain-based
+                            solutions.
+                        </p>
                     </div>
-                    <h3>Solana</h3>
-                    <p>
-                        Integrating with leading DEXs for automated trading strategies and
-                        developing
-                        dApps on Solana, ensuring fast, efficient, and secure blockchain-based
-                        solutions.
-                    </p>
-                    <a href="blockchain.html" class="service-redirect-button">Blockchain <img
-                            src="assets/arrow.png" alt="Arrow"/></a>
+                </div>
+                <div class="inner-page-content row_1">
+                    <div class="inner-page-card">
+                        <a href="blockchain.html" class="service-redirect-button">Blockchain <img
+                                src="assets/arrow.png" alt="Arrow"/></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -460,15 +482,11 @@
         </div>
     </div>
 </section>
-
 <footer class="footer">
     <div class="footer-container">
         <!-- Logo Section -->
         <div class="footer-logo">
             <img src="assets/images/vgravity-logo-21.png" alt="VGravity Logo">
-            <p>
-                <a href="mailto:office@vgravity.com">office@vgravity.com</a>
-            </p>
             <p>&copy;<span id="current-year"></span> VGravity.com. All rights reserved.</p>
         </div>
 
@@ -477,19 +495,26 @@
             <div class="footer-column">
                 <h4>SERVICES</h4>
                 <ul>
-                    <li><a href="index.html#services">Backend Architecture</a></li>
-                    <li><a href="index.html#services">Backend development</a></li>
-                    <li><a href="index.html#services">Infrastructure</a></li>
-                    <li><a href="index.html#services">DevOps</a></li>
-                    <li><a href="index.html#services">Blockchain</a></li>
+                    <li><a href="backend-architecture.html">Backend Architecture</a></li>
+                    <li><a href="backend-development.html">Backend Development</a></li>
+                    <li><a href="devops.html">DevOps Solutions</a></li>
+                    <li><a href="blockchain.html">Blockchain Solutions</a></li>
                 </ul>
             </div>
             <div class="footer-column">
                 <h4>COMPANY</h4>
                 <ul>
-                    <li><a href="index.html#about">About us</a></li>
-                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="index.html#contact">Contact Us</a></li>
                     <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>CONTACT</h4>
+                <ul>
+                    <li>
+                        <a href="mailto:office@vgravity.com">office@vgravity.com</a>
+                    </li>
                 </ul>
             </div>
             <div class="footer-column">

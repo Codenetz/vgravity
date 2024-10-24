@@ -135,7 +135,7 @@ ul.child-menu li:last-child {
 }
 
 ul.child-menu a {
-    color: #aaaaaa !important;
+    color: #3A1660 !important;
     text-transform: none;
     font-size: 15px;
     display: block;
@@ -143,14 +143,32 @@ ul.child-menu a {
     width: 100%;
     height: 100%;
     box-sizing: border-box;
+    border-radius: 0;
 }
 
-ul.child-menu a:hover {
+ul.child-menu li:first-of-type {
+    border-top-left-radius: 18px !important;
+    border-top-right-radius: 18px !important;
+}
+
+/* Set border-radius on the last <a> */
+ul.child-menu li:last-of-type {
+    border-bottom-left-radius: 18px !important;
+    border-bottom-right-radius: 18px !important;
+}
+
+ul.child-menu li:hover {
     color: #000 !important;
+    background-color: rgba(131, 119, 209, 0.2);
 }
 
 ul.child-menu .icon img {
     width: 20px;
+}
+
+ul.child-menu .icon {
+    margin-top: 8px;
+    margin-right: 20px;
 }
 
 .menu-toggle, .mobile-nav {
@@ -187,12 +205,10 @@ ul.child-menu .icon img {
 }
 
 .content-box h1 {
-    font-size: 135px;
+    font-size: 50px;
     font-weight: 700;
-    line-height: 219px;
     color: #fff;
-    letter-spacing: 15px;
-    margin-bottom: -30px;
+    margin-bottom: 30px;
 }
 
 .content-box h2 {
@@ -215,6 +231,11 @@ ul.child-menu .icon img {
     font-weight: 300;
 }
 
+.cta-buttons {
+    display: flex;
+    gap: 25px;
+}
+
 .cta-button {
     border: 2px solid #fff;
     padding: 10px 30px;
@@ -226,9 +247,20 @@ ul.child-menu .icon img {
     transition: background-color 0.3s, color 0.3s;
     cursor: pointer;
     text-transform: uppercase;
+    width: 183px;
+    text-align: center;
 }
 
 .cta-button:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #000;
+}
+
+.cta-button.no-bg {
+    background: none;
+}
+
+.cta-button.no-bg:hover {
     background-color: rgba(255, 255, 255, 0.8);
     color: #000;
 }
@@ -611,6 +643,7 @@ input.error, textarea.error {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    margin-bottom: 30px;
 }
 
 .footer-logo img {
@@ -836,11 +869,19 @@ input.error, textarea.error {
 }
 
 .privacy-policy-container {
-    padding-top: 200px;
+    padding-top: 125px;
 }
 
 .privacy-policy-container .inner-page-content {
     display: block;
+}
+
+.privacy-policy-container .inner-page-content h1 {
+    font-size: 35px;
+}
+
+.privacy-policy-container .inner-page-content h2 {
+    font-size: 25px;
 }
 
 .text-center {
@@ -909,6 +950,11 @@ input.error, textarea.error {
     z-index: 2;
 }
 
+.inner-page .inner-page-content {
+    padding: 70px 0;
+    align-items: center;
+}
+
 .inner-page-content {
     padding: 25px 70px 25px 0;
     text-align: left;
@@ -920,9 +966,23 @@ input.error, textarea.error {
     line-height: 1.5;
 }
 
+.inner-page-section.not-found {
+    display: flex;
+    font-size: 30px;
+    text-align: center;
+    min-height: 63vh;
+    align-items: center;
+    margin-top: 150px;
+}
+
+.inner-page-section.not-found .not-found-content {
+    flex: 1;
+}
+
 .inner-page-section h2 {
     font-size: 28px;
     line-height: 45px;
+    font-weight: 400;
 }
 
 /* Columns */
@@ -988,7 +1048,6 @@ input.error, textarea.error {
 
 .inner-page-card p {
     color: #333;
-    min-height: 200px;
 }
 
 .inner-page-card p strong {
@@ -1063,7 +1122,7 @@ input.error, textarea.error {
     margin-bottom: 30px;
 }
 
-.left-content, .right-content {
+.right-content {
     max-width: 45%;
     text-align: left;
 }
@@ -1116,8 +1175,16 @@ input.error, textarea.error {
 .inner-page-contact p {
     padding-bottom: 20px;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 16px;
     color: #1B1523;
+}
+
+.right {
+    margin-right: 0 !important;
+}
+
+.service-card-blockchain {
+    width: 35%;
 }
 
 @media (max-width: 1600px) {
@@ -1131,18 +1198,10 @@ input.error, textarea.error {
         padding: 50px 180px;
     }
 
-    .inner-page-content {
-        padding: 70px 0 !important;
-    }
-
     .inner-page-card {
         flex: 1 1 calc(50% - 40px) !important;
         max-width: calc(50% - 40px) !important;
         padding: 0 0 30px 0 !important;
-    }
-
-    .inner-page-card p {
-        min-height: 150px;
     }
 
     .inner-page-content .image-column {
@@ -1170,7 +1229,7 @@ input.error, textarea.error {
 @media (max-width: 1024px) {
 
     header {
-        padding: 30px 20px;
+        padding: 30px 30px !important;
     }
 
     nav ul {
@@ -1178,7 +1237,7 @@ input.error, textarea.error {
     }
 
     .hero-content {
-        padding-left: 0;
+        padding: 0 30px;
         margin-top: 0;
     }
 
@@ -1188,7 +1247,8 @@ input.error, textarea.error {
     }
 
     .content-box h1 {
-        font-size: 64px;
+        width: 100%;
+        font-size: 27px;
     }
 
     .content-box h2 {
@@ -1303,7 +1363,12 @@ input.error, textarea.error {
     .inner-page-content {
         flex-direction: column;
         text-align: center;
-        padding: 70px 0 !important;
+        padding: 0 !important;
+    }
+
+    .inner-page .inner-page-content {
+        align-items: center !important;
+        padding: 45px 0 0 0 !important;
     }
 
     .text-column, .image-column {
@@ -1342,16 +1407,16 @@ input.error, textarea.error {
     }
 
     .section {
-        padding: 50px 15px; /* Reduce padding for smaller screens */
+        padding: 30px 30px;
     }
 
     .section h4 {
-        font-size: 18px; /* Adjust the font size */
+        font-size: 18px;
         padding-bottom: 20px;
     }
 
     .section h2 {
-        font-size: 28px; /* Adjust the font size */
+        font-size: 28px;
         padding-bottom: 20px;
     }
 
@@ -1386,6 +1451,10 @@ input.error, textarea.error {
     .card p {
         font-size: 14px; /* Smaller font size */
     }
+
+    .service-card-blockchain {
+        width: 100%;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1401,8 +1470,16 @@ input.error, textarea.error {
     }
 
     .skills-container {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+        grid-template-columns: repeat(2, 1fr);
         gap: 20px;
+        border: none;
+        padding: 0;
+        margin: 0;
+        background: none;
+    }
+
+    .skills-container .skill-box {
+        flex: 1 1 100%;
     }
 }
 
@@ -1416,10 +1493,6 @@ input.error, textarea.error {
         align-items: flex-start;
     }
 
-    .content-box h1 {
-        font-size: 48px;
-    }
-
     .content-box h2 {
         font-size: 20px;
     }
@@ -1428,25 +1501,27 @@ input.error, textarea.error {
         font-size: 14px;
     }
 
+    .cta-buttons {
+        justify-content: center;
+    }
+
     .cta-button {
         padding: 8px 16px;
         font-size: 12px;
-    }
-
-    .section {
-        padding: 30px 10px;
+        width: 120px;
+        text-align: center;
     }
 
     .card h3 {
-        font-size: 12px; /* Adjust font size */
+        font-size: 12px;
         padding: 10px;
     }
 
     .card p {
-        font-size: 12px; /* Adjust font size */
+        font-size: 12px;
     }
 
     .skills-container {
-        grid-template-columns: 1fr; /* 1 column for mobile */
+        grid-template-columns: 1fr;
     }
 }

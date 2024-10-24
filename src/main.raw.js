@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const dropdownItems = document.querySelectorAll('.dropdown-item');
   const dropdown = document.querySelector('.services-mobile-dropdown');
   const tabs = document.querySelectorAll('.tab');
-  const cards = document.querySelectorAll('.card');
   const serviceDescriptions = document.querySelectorAll('.service-description');
   const contactSubmitButton = document.getElementById('contact-form-submit');
   const captchaTokenInput = document.getElementById('captchaToken');
@@ -263,12 +262,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Used from service section
   function updateDisplayedContent(selectedValue) {
-    cards.forEach(card => {
-      card.style.display = card.getAttribute('data-key') === selectedValue ? 'flex' : 'none';
-    });
-
     serviceDescriptions.forEach(description => {
-      description.style.display = description.getAttribute('data-key') === selectedValue ? 'flex' : 'none';
+      description.style.display = description.getAttribute('data-key') === selectedValue ? 'block' : 'none';
     });
   }
 });
