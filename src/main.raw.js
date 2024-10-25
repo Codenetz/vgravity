@@ -23,8 +23,6 @@ document.addEventListener('DOMContentLoaded', function () {
       errorMessageContainer: document.getElementById('error-message'),
       mobileNav: document.querySelector('nav.mobile-nav'),
       menuLinks: document.querySelectorAll('nav.mobile-nav ul a'),
-      contactFormErrorMessages: document.querySelectorAll('.error-message'),
-      contactFormError: document.querySelectorAll('.error'),
       header: document.querySelector('header'),
       mobileMenu: document.getElementById('mobile-menu'),
       closeMenu: document.getElementById('close-menu')
@@ -215,8 +213,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function clearErrors() {
-      elements.contactFormErrorMessages.forEach(hideElement);
-      elements.contactFormError.forEach(element => element.classList.remove('error'));
+      document.querySelectorAll('.error-message').forEach(hideElement);
+      document.querySelectorAll('.error').forEach(element => element.classList.remove('error'));
     }
 
     function validateEmail(email) {
